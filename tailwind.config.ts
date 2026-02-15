@@ -30,7 +30,8 @@ const config: Config = {
                 '5xl': '2.5rem',
             },
             fontFamily: {
-                display: ['var(--font-outfit)', 'Inter', 'sans-serif'],
+                display: ['var(--font-saira)', 'sans-serif'],
+                sans: ['var(--font-space)', 'sans-serif'],
             }
         },
     },
