@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    title: "Sports Stadium Booking Platform | Book Your Favorite Stadium",
-    description: "Reserve football, cricket, badminton & more instantly. Book stadium slots quickly with our easy and secure booking platform.",
-    keywords: ["sports", "stadium", "booking", "football", "cricket", "badminton", "basketball", "reservation"],
-    authors: [{ name: "Sports Stadium Booking" }],
+    title: "STADIUMBOOK | Elite Sports Venue Reservation",
+    description: "The world's leading sports facility booking platform. Reserve football, tennis, and basketball courts instantly.",
+    keywords: ["sports", "stadium", "booking", "stadiumbook", "reservation", "arenas"],
+    authors: [{ name: "STADIUMBOOK Team" }],
     openGraph: {
-        title: "Sports Stadium Booking Platform",
+        title: "STADIUMBOOK - Reserve Your Arena",
         description: "Book Your Favorite Stadium in Minutes",
         type: "website",
     },
@@ -23,7 +23,7 @@ export default function RootLayout({
             <head>
                 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
             </head>
-            <body className="antialiased">{children}</body>
+            <body className="antialiased bg-brand-deep text-white selection:bg-brand-lime selection:text-brand-deep">{children}</body>
         </html>
     );
 }

@@ -7,236 +7,188 @@ export default function Dashboard() {
     const pathname = usePathname();
 
     const navItems = [
-        { name: "Dashboard", href: "/dashboard", icon: "dashboard" },
-        { name: "My Bookings", href: "/dashboard", icon: "calendar_today" },
-        { name: "Find a Venue", href: "/venues", icon: "map" },
+        { name: "Console", href: "/dashboard", icon: "grid_view" },
+        { name: "My Bookings", href: "/dashboard", icon: "confirmation_number" },
+        { name: "Venue Search", href: "/venues", icon: "search" },
         { name: "Profile", href: "/settings", icon: "person" },
-        { name: "Settings", href: "/settings", icon: "settings" },
+        { name: "Account", href: "/settings", icon: "settings" },
     ];
 
     return (
-        <div className="bg-background-dark text-slate-200 min-h-screen font-display flex h-screen overflow-hidden">
+        <div className="bg-brand-deep text-white min-h-screen font-display flex h-screen overflow-hidden">
             {/* Sidebar Navigation */}
-            <aside className="w-72 glass-card flex flex-col border-r border-white/10 shrink-0">
-                <div className="p-8">
+            <aside className="w-80 glass border-r border-white/5 flex flex-col shrink-0">
+                <div className="p-10">
                     <Link href="/" className="flex items-center gap-3">
-                        <div className="size-10 bg-neon-green rounded-lg flex items-center justify-center">
-                            <span className="material-symbols-outlined text-white text-2xl">sports_soccer</span>
+                        <div className="size-10 bg-brand-lime rounded-xl flex items-center justify-center">
+                            <span className="material-symbols-outlined text-brand-deep text-2xl font-black italic">bolt</span>
                         </div>
-                        <h1 className="text-xl font-bold tracking-tight text-white">Elite Arena</h1>
+                        <h1 className="text-xl font-black tracking-[0.1em] uppercase">STADIUM<span className="text-brand-lime">BOOK</span></h1>
                     </Link>
                 </div>
-                <nav className="flex-1 px-4 space-y-2">
+
+                <nav className="flex-1 px-6 space-y-2 py-4">
+                    <div className="text-[10px] font-black uppercase tracking-[0.2em] text-white/20 mb-6 px-4">Menu Selection</div>
                     {navItems.map((item) => (
                         <Link
                             key={item.name}
                             href={item.href}
-                            className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${pathname === item.href
-                                    ? "bg-neon-green/10 border-r-3 border-neon-green text-neon-green"
-                                    : "text-slate-400 hover:text-white hover:bg-white/5"
+                            className={`flex items-center gap-4 px-5 py-4 rounded-2xl transition-all duration-500 group ${pathname === item.href
+                                ? "bg-brand-lime text-brand-deep shadow-xl shadow-brand-lime/10"
+                                : "text-white/40 hover:text-white hover:bg-white/5"
                                 }`}
                         >
-                            <span className="material-symbols-outlined">{item.icon}</span>
-                            <span className="font-medium">{item.name}</span>
+                            <span className={`material-symbols-outlined text-xl ${pathname === item.href ? "font-black" : "group-hover:text-brand-lime transition-colors"}`}>{item.icon}</span>
+                            <span className="text-[11px] font-black uppercase tracking-widest">{item.name}</span>
+                            {pathname === item.href && <span className="ml-auto size-1.5 bg-brand-deep rounded-full"></span>}
                         </Link>
                     ))}
                 </nav>
-                <div className="p-4 mt-auto">
+
+                <div className="p-8 border-t border-white/5 bg-white/[0.01]">
                     <Link href="/venues">
-                        <button className="w-full flex items-center justify-center gap-2 bg-neon-green hover:bg-neon-green/90 text-white font-bold py-3 px-4 rounded-lg shadow-lg shadow-neon-green/20 transition-all">
-                            <span className="material-symbols-outlined">add_circle</span>
-                            Book New Venue
+                        <button className="w-full btn-lime font-display py-4 text-[11px]">
+                            New Reservation
                         </button>
                     </Link>
                 </div>
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 flex flex-col overflow-y-auto bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-900 via-background-dark to-background-dark">
+            <main className="flex-1 flex flex-col overflow-y-auto bg-brand-deep relative">
+                <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-brand-lime/5 blur-[120px] -z-10 rounded-full"></div>
+
                 {/* Top Header */}
-                <header className="h-20 glass-card border-b border-white/5 px-8 flex items-center justify-between sticky top-0 z-10">
-                    <div className="relative w-96">
-                        <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">search</span>
+                <header className="h-24 px-12 flex items-center justify-between sticky top-0 z-10 bg-brand-deep/80 backdrop-blur-md border-b border-white/5">
+                    <div className="relative w-[400px]">
+                        <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-white/20">search</span>
                         <input
-                            className="w-full bg-white/5 border border-white/10 rounded-lg py-2 pl-10 pr-4 focus:ring-1 focus:ring-neon-green focus:border-neon-green outline-none text-sm transition-all"
-                            placeholder="Search venues, matches or players..."
+                            className="w-full bg-white/[0.03] border border-white/5 rounded-2xl py-3 pl-12 pr-4 focus:ring-1 focus:ring-brand-lime/30 focus:border-brand-lime/30 outline-none text-[11px] font-medium transition-all"
+                            placeholder="SEARCH RESERVATIONS, ARENAS..."
                             type="text"
                         />
                     </div>
-                    <div className="flex items-center gap-6">
-                        <div className="relative cursor-pointer hover:bg-white/5 p-2 rounded-lg transition-all">
-                            <span className="material-symbols-outlined text-slate-400">notifications</span>
-                            <span className="absolute top-2 right-2 size-2 bg-neon-green rounded-full border-2 border-background-dark"></span>
-                        </div>
-                        <div className="flex items-center gap-3 pl-4 border-l border-white/10">
+                    <div className="flex items-center gap-8">
+                        <button className="size-12 rounded-2xl glass border-white/5 flex items-center justify-center text-white/40 hover:text-brand-lime transition-all relative">
+                            <span className="material-symbols-outlined text-xl">notifications</span>
+                            <span className="absolute top-3.5 right-3.5 size-2 bg-brand-lime rounded-full border-2 border-brand-deep"></span>
+                        </button>
+                        <div className="flex items-center gap-4 pl-8 border-l border-white/5">
                             <div className="text-right">
-                                <p className="text-sm font-semibold text-white">Alex Johnson</p>
-                                <p className="text-xs text-slate-500">Elite Member</p>
+                                <p className="text-[11px] font-black uppercase tracking-widest text-white">Alex Johnson</p>
+                                <p className="text-[9px] font-black uppercase tracking-[0.2em] text-brand-lime mt-0.5">Premier Gold</p>
                             </div>
-                            <div
-                                className="size-10 rounded-full bg-slate-700 border border-white/20 bg-cover bg-center"
-                                style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3sQ5ehn3bQ59oAD8xcaxN1_XnZhc57s2VFazC8dN0Kzg37ZbsIy9tlvGPqbVYss-4JV7EGKACvq3hFm2K5NCwU4Y5wJa5hPMPlhnqpVmaOwJG2XlCQmeOIrPAjwHA_lvrUAgoCeLOGd4L1lbVpxUv8_aeABUKWWyHcT7cBKnfVTzDQsHs1W-zg4d68xXhTGjvn5buEP9fH5msqfEAKbf7bAKdw12xqfV76v4Z8kP7jyEYMu4OWzmzqDlAI1J8cJBpdVaP3EEJMzIT')" }}
-                            ></div>
+                            <div className="size-12 rounded-2xl bg-white/5 border border-white/10 p-1">
+                                <img className="w-full h-full object-cover rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3sQ5ehn3bQ59oAD8xcaxN1_XnZhc57s2VFazC8dN0Kzg37ZbsIy9tlvGPqbVYss-4JV7EGKACvq3hFm2K5NCwU4Y5wJa5hPMPlhnqpVmaOwJG2XlCQmeOIrPAjwHA_lvrUAgoCeLOGd4L1lbVpxUv8_aeABUKWWyHcT7cBKnfVTzDQsHs1W-zg4d68xXhTGjvn5buEP9fH5msqfEAKbf7bAKdw12xqfV76v4Z8kP7jyEYMu4OWzmzqDlAI1J8cJBpdVaP3EEJMzIT" alt="Profile" />
+                            </div>
                         </div>
                     </div>
                 </header>
 
                 {/* Dashboard Content */}
-                <div className="p-8 space-y-8 max-w-7xl mx-auto w-full">
-                    {/* Overview Stats */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="glass-card p-6 rounded-lg group hover:border-neon-green/50 transition-all cursor-pointer">
-                            <div className="flex justify-between items-start mb-4">
-                                <div className="p-2 bg-neon-green/10 rounded-lg text-neon-green">
-                                    <span className="material-symbols-outlined">sports_soccer</span>
-                                </div>
-                                <span className="text-neon-green text-xs font-bold uppercase tracking-wider">+1 This week</span>
-                            </div>
-                            <p className="text-slate-400 text-sm font-medium">Upcoming Matches</p>
-                            <h3 className="text-3xl font-bold text-white mt-1">
-                                3 <span className="text-sm font-normal text-slate-500">Scheduled</span>
-                            </h3>
+                <div className="p-12 space-y-12 max-w-7xl">
+                    <div className="flex items-end justify-between">
+                        <div>
+                            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-lime mb-2">Member Overview</p>
+                            <h2 className="text-4xl font-black font-display uppercase tracking-tight">System <span className="gradient-text">Statistics</span></h2>
                         </div>
-                        <div className="glass-card p-6 rounded-lg group hover:border-primary-blue/50 transition-all cursor-pointer">
-                            <div className="flex justify-between items-start mb-4">
-                                <div className="p-2 bg-primary-blue/10 rounded-lg text-primary-blue">
-                                    <span className="material-symbols-outlined">confirmation_number</span>
-                                </div>
-                                <span className="text-primary-blue text-xs font-bold uppercase tracking-wider">Lifetime</span>
-                            </div>
-                            <p className="text-slate-400 text-sm font-medium">Total Bookings</p>
-                            <h3 className="text-3xl font-bold text-white mt-1">
-                                24 <span className="text-sm font-normal text-slate-500">Venues</span>
-                            </h3>
-                        </div>
-                        <div className="glass-card p-6 rounded-lg group hover:border-yellow-500/50 transition-all cursor-pointer">
-                            <div className="flex justify-between items-start mb-4">
-                                <div className="p-2 bg-yellow-500/10 rounded-lg text-yellow-500">
-                                    <span className="material-symbols-outlined">workspace_premium</span>
-                                </div>
-                                <span className="text-yellow-500 text-xs font-bold uppercase tracking-wider">+150 Today</span>
-                            </div>
-                            <p className="text-slate-400 text-sm font-medium">Reward Points</p>
-                            <h3 className="text-3xl font-bold text-white mt-1">
-                                1,250 <span className="text-sm font-normal text-slate-500">pts</span>
-                            </h3>
+                        <div className="flex gap-2">
+                            <span className="px-4 py-2 rounded-full glass border-white/5 text-[9px] font-black uppercase tracking-widest text-white/30">Last Updated: Just Now</span>
                         </div>
                     </div>
 
-                    {/* Upcoming Bookings Section */}
-                    <section>
-                        <div className="flex justify-between items-end mb-6">
-                            <div>
-                                <h2 className="text-2xl font-bold text-white">Upcoming Bookings</h2>
-                                <p className="text-slate-500 text-sm">Don't miss your upcoming games</p>
+                    {/* Overview Stats */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {[
+                            { label: "Active Slots", val: "03", trend: "+1 New", icon: "stadium", color: "brand-lime" },
+                            { label: "Total Visits", val: "24", trend: "Lifetime", icon: "confirmation_number", color: "white" },
+                            { label: "Stamina Pts", val: "1,250", trend: "+150 Today", icon: "bolt", color: "brand-lime" },
+                        ].map((stat, i) => (
+                            <div key={i} className="glass-card p-10 rounded-[2.5rem] relative overflow-hidden group hover:border-brand-lime/20 cursor-pointer transition-all duration-500">
+                                <div className="absolute top-0 right-0 size-32 bg-brand-lime/5 blur-[50px] -z-10 rounded-full group-hover:bg-brand-lime/10 transition-all"></div>
+                                <div className="flex justify-between items-start mb-8">
+                                    <div className="p-4 bg-white/[0.03] rounded-2xl border border-white/5 text-brand-lime">
+                                        <span className="material-symbols-outlined text-2xl">{stat.icon}</span>
+                                    </div>
+                                    <span className={`text-[10px] font-black uppercase tracking-widest ${stat.color === 'brand-lime' ? 'text-brand-lime' : 'text-white/40'}`}>{stat.trend}</span>
+                                </div>
+                                <p className="text-white/30 text-[11px] font-black uppercase tracking-widest mb-1">{stat.label}</p>
+                                <h3 className="text-5xl font-black font-display tracking-tighter text-white">{stat.val}</h3>
                             </div>
-                            <button className="text-neon-green text-sm font-bold hover:underline">View All Schedule</button>
-                        </div>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                            {/* Booking Card 1 */}
-                            <div className="glass-card rounded-lg overflow-hidden flex flex-col sm:flex-row group">
-                                <div className="sm:w-48 h-48 sm:h-auto overflow-hidden">
-                                    <div
-                                        className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                                        style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjB0flrGfA_pt-YXx9l0W4Z447_gILGxBubCRI4IgCGV-PAxIJ3xZOkx9TmYXoFu9k2vTjZ-1zjXNyNwcbwkXCHNQnPTKLOLf1I1uXX27GnFFguP2yGGsKd7R0Adomdb63UG9G19misoFpsaT3XTxOJTkyYdBsUmEXNuZNIig3_MGPB91pdLgYseSrFUuifkBHM9TxfGsSuLGt1JNYMOGMO0K2EjVQLZYAnFo4mbfmPjhlVDjPpDQbY47IivJ_GOzlthJ0YcAwPEON')" }}
-                                    ></div>
-                                </div>
-                                <div className="flex-1 p-6 flex flex-col justify-between">
-                                    <div>
-                                        <div className="flex justify-between items-start mb-2">
-                                            <h4 className="text-lg font-bold text-white">Wembley Pitch A</h4>
-                                            <span className="px-2 py-1 rounded bg-neon-green/20 text-neon-green text-[10px] font-bold uppercase">Confirmed</span>
-                                        </div>
-                                        <div className="space-y-2">
-                                            <div className="flex items-center gap-2 text-slate-400 text-sm">
-                                                <span className="material-symbols-outlined text-base">calendar_month</span>
-                                                <span>Tuesday, Oct 24, 2023</span>
-                                            </div>
-                                            <div className="flex items-center gap-2 text-slate-400 text-sm">
-                                                <span className="material-symbols-outlined text-base">schedule</span>
-                                                <span>18:00 - 20:00 (2 hrs)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="mt-6 flex gap-3">
-                                        <button className="flex-1 bg-white/5 hover:bg-white/10 text-white text-sm font-semibold py-2 rounded-lg transition-all">View Details</button>
-                                        <button className="flex-1 bg-neon-green/20 hover:bg-neon-green/30 text-neon-green text-sm font-semibold py-2 rounded-lg transition-all border border-neon-green/30">Manage</button>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* Booking Card 2 */}
-                            <div className="glass-card rounded-lg overflow-hidden flex flex-col sm:flex-row group">
-                                <div className="sm:w-48 h-48 sm:h-auto overflow-hidden">
-                                    <div
-                                        className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                                        style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuA1WVrfOxiDSNInxDKWNTGqSiSK7zUGtQ-8mXScXSe9rDMglUx_9foSbDTyb6oaFKMsLo5nR_nK6G27MlUiSfJf9kNumQ1XywjbAWjwmKsxETvP1--tN46dUeUtUW0KFJSzSccRkmi4MzEYjZcieGrUm73lgyn6jssiALdwLw3o5BtX-W80K6fId9kJrbcGTsNwWfvw6pgxW28ykmAZa3gCIHu2iSkhz2q77QktMZ8IfZE_XxX1u5hX3XwghcR2JEJVTwfPUy43XqWf')" }}
-                                    ></div>
-                                </div>
-                                <div className="flex-1 p-6 flex flex-col justify-between">
-                                    <div>
-                                        <div className="flex justify-between items-start mb-2">
-                                            <h4 className="text-lg font-bold text-white">Old Trafford Training</h4>
-                                            <span className="px-2 py-1 rounded bg-neon-green/20 text-neon-green text-[10px] font-bold uppercase">Confirmed</span>
-                                        </div>
-                                        <div className="space-y-2">
-                                            <div className="flex items-center gap-2 text-slate-400 text-sm">
-                                                <span className="material-symbols-outlined text-base">calendar_month</span>
-                                                <span>Saturday, Oct 28, 2023</span>
-                                            </div>
-                                            <div className="flex items-center gap-2 text-slate-400 text-sm">
-                                                <span className="material-symbols-outlined text-base">schedule</span>
-                                                <span>20:00 - 22:00 (2 hrs)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="mt-6 flex gap-3">
-                                        <button className="flex-1 bg-white/5 hover:bg-white/10 text-white text-sm font-semibold py-2 rounded-lg transition-all">View Details</button>
-                                        <button className="flex-1 bg-neon-green/20 hover:bg-neon-green/30 text-neon-green text-sm font-semibold py-2 rounded-lg transition-all border border-neon-green/30">Manage</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                        ))}
+                    </div>
 
-                    {/* Activity Section */}
-                    <section>
-                        <h2 className="text-xl font-bold text-white mb-6">Recent Activity</h2>
-                        <div className="glass-card rounded-lg divide-y divide-white/5 overflow-hidden">
-                            <div className="p-5 flex items-center justify-between hover:bg-white/[0.02] transition-all">
-                                <div className="flex items-center gap-4">
-                                    <div className="size-12 rounded-lg bg-white/5 flex items-center justify-center text-slate-400">
-                                        <span className="material-symbols-outlined">stadium</span>
-                                    </div>
-                                    <div>
-                                        <p className="font-bold text-white">Emirates Arena Court 4</p>
-                                        <p className="text-xs text-slate-500">Oct 15, 2023 • 14:00 • 5-a-side Football</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-8">
-                                    <div className="hidden sm:block text-right">
-                                        <p className="text-sm font-semibold text-white">$45.00</p>
-                                        <p className="text-xs text-slate-500">Payment ID: #8829</p>
-                                    </div>
-                                    <span className="px-3 py-1 rounded-full bg-neon-green/10 text-neon-green text-xs font-bold border border-neon-green/20">Completed</span>
-                                    <button className="p-2 text-slate-500 hover:text-white transition-all">
-                                        <span className="material-symbols-outlined">more_vert</span>
-                                    </button>
-                                </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                        {/* Upcoming Bookings Section */}
+                        <div className="lg:col-span-2 space-y-8">
+                            <div className="flex justify-between items-center">
+                                <h2 className="text-xl font-black font-display uppercase tracking-wider">Active Reservations</h2>
+                                <button className="text-[10px] font-black uppercase tracking-widest text-brand-lime hover:text-white transition-colors">Digital Calendar</button>
                             </div>
-                            {/* ... other items ... */}
+
+                            <div className="space-y-6">
+                                {[
+                                    { name: "Elite Performance Arena", type: "Pitch A", date: "Tues, Oct 24", time: "18:00 - 20:00", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBvPYlEhMQj2HWbShttk34BGuQ3Nn0Dt3XYTxBZlkc5vVWFh3aBfWs_9vgfhE-2w7kjE2PETIJHTWo7AqdnH39MOdW0OKtfP4_5d6_FxMeopTzCnfHdOA9mDkewjon_hoYPBUzLu6vMyZ0HEt4ewJxNsAS4CaXvwRAno30Mud0U3oJ8fbx0jT3phTMlG057qaYfGc60Zp8FbUoOLFHpr4W_D9nUm8R3kcw2m2KYvBgza5cOekBrU1Ox2vIycIpSHgQ_qB33DnWUaYTy" },
+                                    { name: "Skyline Hoops Premium", type: "Court 2", date: "Sat, Oct 28", time: "20:00 - 22:00", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA1WVrfOxiDSNInxDKWNTGqSiSK7zUGtQ-8mXScXSe9rDMglUx_9foSbDTyb6oaFKMsLo5nR_nK6G27MlUiSfJf9kNumQ1XywjbAWjwmKsxETvP1--tN46dUeUtUW0KFJSzSccRkmi4MzEYjZcieGrUm73lgyn6jssiALdwLw3o5BtX-W80K6fId9kJrbcGTsNwWfvw6pgxW28ykmAZa3gCIHu2iSkhz2q77QktMZ8IfZE_XxX1u5hX3XwghcR2JEJVTwfPUy43XqWf" }
+                                ].map((booking, i) => (
+                                    <div key={i} className="glass-card p-6 rounded-[2rem] flex flex-col sm:flex-row gap-8 group hover:border-brand-lime/10 transition-all duration-500">
+                                        <div className="sm:w-48 h-40 rounded-2xl overflow-hidden shrink-0">
+                                            <img className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" src={booking.img} alt={booking.name} />
+                                        </div>
+                                        <div className="flex-1 flex flex-col justify-between py-2">
+                                            <div>
+                                                <div className="flex justify-between items-start mb-4">
+                                                    <div>
+                                                        <h4 className="text-xl font-bold font-display uppercase tracking-tight text-white mb-1">{booking.name}</h4>
+                                                        <p className="text-[10px] font-black uppercase tracking-widest text-brand-lime">{booking.type}</p>
+                                                    </div>
+                                                    <span className="px-3 py-1 rounded-full bg-brand-lime/10 text-brand-lime text-[9px] font-black uppercase tracking-widest border border-brand-lime/10">Authorized</span>
+                                                </div>
+                                                <div className="flex flex-wrap gap-6 mt-4">
+                                                    <div className="flex items-center gap-3 text-white/40">
+                                                        <span className="material-symbols-outlined text-sm">calendar_month</span>
+                                                        <span className="text-[10px] font-black uppercase tracking-widest">{booking.date}</span>
+                                                    </div>
+                                                    <div className="flex items-center gap-3 text-white/40">
+                                                        <span className="material-symbols-outlined text-sm">schedule</span>
+                                                        <span className="text-[10px] font-black uppercase tracking-widest">{booking.time}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="mt-8 flex gap-3">
+                                                <button className="px-6 py-2.5 rounded-xl bg-white/[0.03] border border-white/5 text-[10px] font-black uppercase tracking-widest hover:bg-white/5 transition-all">Details</button>
+                                                <button className="px-6 py-2.5 rounded-xl border border-brand-lime/20 text-brand-lime text-[10px] font-black uppercase tracking-widest hover:bg-brand-lime hover:text-brand-deep transition-all duration-500">Modify Reservation</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </section>
+
+                        {/* Recent Activity Mini */}
+                        <div className="space-y-8">
+                            <h2 className="text-xl font-black font-display uppercase tracking-wider">Feed</h2>
+                            <div className="glass shadow-2xl rounded-[2.5rem] divide-y divide-white/5 overflow-hidden border border-white/5">
+                                {[
+                                    { title: "Payment Verified", sub: "Oct 15 • -$45.00", icon: "check_circle" },
+                                    { title: "Review Published", sub: "Oct 12 • 5 Stars", icon: "grade" },
+                                    { title: "Account Secured", sub: "Oct 10 • Success", icon: "verified_user" },
+                                ].map((act, i) => (
+                                    <div key={i} className="p-8 hover:bg-white/[0.02] transition-all group flex items-center gap-5">
+                                        <div className="size-12 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center text-white/20 group-hover:text-brand-lime transition-all">
+                                            <span className="material-symbols-outlined text-xl">{act.icon}</span>
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] font-black uppercase tracking-[0.1em] text-white mb-1">{act.title}</p>
+                                            <p className="text-[9px] font-bold text-white/30 tracking-widest">{act.sub}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </main>
-
-            <style jsx global>{`
-        .glass-card {
-          background: rgba(255, 255, 255, 0.03);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-      `}</style>
         </div>
     );
 }

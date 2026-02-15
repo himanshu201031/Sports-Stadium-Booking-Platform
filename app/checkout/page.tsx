@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Navbar from "@/components/Navbar";
 
 export default function Checkout() {
     const router = useRouter();
@@ -11,182 +12,138 @@ export default function Checkout() {
     };
 
     return (
-        <div className="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
-            <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-                {/* Navigation */}
-                <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 px-6 py-4 md:px-20 lg:px-40 glass sticky top-0 z-50">
-                    <Link href="/" className="flex items-center gap-4 text-neon-green">
-                        <div className="size-8">
-                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
-                            </svg>
-                        </div>
-                        <h2 className="text-white text-xl font-bold leading-tight tracking-tight">StadiumBook</h2>
-                    </Link>
-                    <div className="flex flex-1 justify-end gap-8 items-center">
-                        <nav className="hidden md:flex items-center gap-9">
-                            <Link className="text-slate-400 hover:text-white transition-colors text-sm font-medium" href="/venues">Venues</Link>
-                            <Link className="text-slate-400 hover:text-white transition-colors text-sm font-medium" href="/dashboard">My Bookings</Link>
-                            <Link className="text-slate-400 hover:text-white transition-colors text-sm font-medium" href="/settings">Support</Link>
-                        </nav>
-                        <div className="bg-neon-green/20 p-0.5 rounded-full ring-2 ring-neon-green/30">
-                            <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-bZiXoDm45t-scGusJMI_yOLXXaHnxzD1VjzEL9qQz-PxFm2zyeZkd5Y5parBr4ph2xkA8-EYO1OJaIAwE5IKWJptrfCGc3qj_aBmPTZq5SiCPGu1YzSppQ9LKgCLZ_3MHUoMnW6cMFHQ3-MxvRfIzwptyXXoFIDyYYU4b_etdcYFQv8W4NPgDFpLU33QUWDKxE19s3t9izIUEFwc_ivm1eRJjHxL-7eGazRitbiWU_-GF0Xi3gIhucywJX-H0qs_1RdCiD4KrahY")' }}></div>
-                        </div>
-                    </div>
-                </header>
+        <div className="font-display bg-brand-deep text-white min-h-screen">
+            <Navbar />
 
-                <main className="flex-1 px-4 py-8 md:px-20 lg:px-40 max-w-[1440px] mx-auto w-full">
-                    {/* Page Title */}
-                    <div className="mb-10">
-                        <h1 className="text-slate-100 text-4xl font-black leading-tight tracking-tight">Secure Checkout</h1>
-                        <p className="text-slate-400 text-lg mt-2 font-normal">Finalize your premium booking for Grand Olympic Arena</p>
-                    </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                        {/* Left Column: Booking Summary */}
-                        <div className="lg:col-span-7 space-y-6">
-                            <section className="glass rounded-xl p-6 overflow-hidden">
-                                <div className="flex flex-col md:flex-row gap-6">
-                                    <div className="w-full md:w-48 h-32 bg-center bg-no-repeat bg-cover rounded-lg flex-shrink-0" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqlyobLVo2lq4qp9C-cXwfSlvq_ngxKxv46VFn3cVHKYaQ-7PT8QyGewlVu8GjB8KKJ9J0BNIKeXEbV6qtvIWNRLaLudACPfnRxg4FRpCdZFouXfMZu_Ie5_uQmQj9Bx9Ap4rpW3QyQjZ84CE2SqYdwr4fe1o8w4nbWLxEkXMh_iSMXv3dDkA2wChjfO9OrUEWyAkuY0--q4woZjREF_QyPrZI9K3dF2A9Uhy7m9X3nobY33wJ0lTR_uuwnuj0D2JVBq0ZDSLCQDrR")' }}></div>
-                                    <div className="flex flex-col justify-center flex-1">
-                                        <span className="text-neon-green text-xs font-bold uppercase tracking-widest mb-1">Selected Venue</span>
-                                        <h3 className="text-white text-2xl font-bold">Grand Olympic Arena</h3>
-                                        <div className="flex items-center gap-2 text-slate-400 mt-1">
-                                            <span className="material-symbols-outlined text-sm">location_on</span>
-                                            <p className="text-sm">Premium Football Turf • Section A-42</p>
-                                        </div>
-                                    </div>
+            <main className="max-w-7xl mx-auto px-6 pt-32 pb-20">
+                {/* Header Information */}
+                <div className="mb-16">
+                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-lime mb-2">Checkout Logic</p>
+                    <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight font-display">Finalize <span className="gradient-text">Reservation</span></h1>
+                    <p className="text-white/30 text-lg mt-4 font-medium max-w-2xl leading-relaxed">You are seconds away from securing your elite playing time at Grand Olympic Arena.</p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                    {/* Left Column: Summary */}
+                    <div className="lg:col-span-7 space-y-10">
+                        <section className="glass-morphism rounded-[2.5rem] p-10 overflow-hidden relative">
+                            <div className="absolute top-0 right-0 size-48 bg-brand-lime/5 blur-[60px] -z-10 rounded-full"></div>
+
+                            <div className="flex flex-col md:flex-row gap-10">
+                                <div className="w-full md:w-56 h-40 rounded-3xl overflow-hidden shrink-0 border border-white/5 shadow-2xl">
+                                    <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqlyobLVo2lq4qp9C-cXwfSlvq_ngxKxv46VFn3cVHKYaQ-7PT8QyGewlVu8GjB8KKJ9J0BNIKeXEbV6qtvIWNRLaLudACPfnRxg4FRpCdZFouXfMZu_Ie5_uQmQj9Bx9Ap4rpW3QyQjZ84CE2SqYdwr4fe1o8w4nbWLxEkXMh_iSMXv3dDkA2wChjfO9OrUEWyAkuY0--q4woZjREF_QyPrZI9K3dF2A9Uhy7m9X3nobY33wJ0lTR_uuwnuj0D2JVBq0ZDSLCQDrR" alt="Venue" />
                                 </div>
-                                <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-white/5">
-                                    <div>
-                                        <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-1">Date</p>
-                                        <p className="text-slate-200 font-medium">Oct 24, 2023</p>
+                                <div className="flex flex-col justify-center flex-1">
+                                    <div className="px-3 py-1 rounded-full bg-brand-lime/10 text-brand-lime text-[9px] font-black uppercase tracking-widest border border-brand-lime/10 w-fit mb-4 italic">Premium Selection</div>
+                                    <h3 className="text-2xl font-black font-display uppercase tracking-tight text-white mb-2">Grand Olympic Arena</h3>
+                                    <div className="flex items-center gap-3 text-white/40">
+                                        <span className="material-symbols-outlined text-sm">location_on</span>
+                                        <p className="text-[11px] font-black uppercase tracking-widest leading-none">Olympic Village • Section A-42</p>
                                     </div>
-                                    <div>
-                                        <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-1">Time</p>
-                                        <p className="text-slate-200 font-medium">08:00 PM - 10:00 PM</p>
-                                    </div>
-                                    <div>
-                                        <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-1">Duration</p>
-                                        <p className="text-slate-200 font-medium">2 Hours</p>
-                                    </div>
-                                    <div>
-                                        <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-1">Guests</p>
-                                        <p className="text-slate-200 font-medium">Up to 22 Players</p>
-                                    </div>
-                                </div>
-                                <div className="mt-6 space-y-3">
-                                    <div className="flex justify-between items-center text-slate-300">
-                                        <span>Booking Fee (2 Hours)</span>
-                                        <span>$180.00</span>
-                                    </div>
-                                    <div className="flex justify-between items-center text-slate-300">
-                                        <div className="flex items-center gap-1">
-                                            <span>Service Fee</span>
-                                            <span className="material-symbols-outlined text-[14px] text-slate-500">info</span>
-                                        </div>
-                                        <span>$12.50</span>
-                                    </div>
-                                    <div className="pt-4 mt-2 border-t border-white/10 flex justify-between items-center">
-                                        <span className="text-xl font-bold text-white">Total Amount</span>
-                                        <div className="text-right">
-                                            <span className="text-3xl font-black text-neon-green">$192.50</span>
-                                            <p className="text-[10px] text-slate-500 mt-1">Inclusive of all local taxes</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                            {/* Trust Section */}
-                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-8 px-4 opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
-                                <div className="flex items-center gap-2">
-                                    <span className="material-symbols-outlined text-neon-green text-xl">verified_user</span>
-                                    <span className="text-xs font-bold text-slate-300 uppercase tracking-tighter">SSL Secure Payment</span>
-                                </div>
-                                <div className="flex items-center gap-2 border-l border-white/10 pl-8">
-                                    <span className="material-symbols-outlined text-neon-green text-xl">lock</span>
-                                    <span className="text-xs font-bold text-slate-300 uppercase tracking-tighter">Encrypted Transaction</span>
-                                </div>
-                                <div className="flex items-center gap-2 border-l border-white/10 pl-8">
-                                    <span className="material-symbols-outlined text-neon-green text-xl">credit_score</span>
-                                    <span className="text-xs font-bold text-slate-300 uppercase tracking-tighter">PCI-DSS Compliant</span>
                                 </div>
                             </div>
-                        </div>
 
-                        {/* Right Column: Payment Selection */}
-                        <div className="lg:col-span-5 space-y-6">
-                            <section className="glass rounded-xl p-8">
-                                <div className="flex items-center justify-between mb-8">
-                                    <h3 className="text-white text-xl font-bold">Payment Method</h3>
-                                    <button className="text-neon-green text-sm font-semibold hover:underline">Add New</button>
-                                </div>
-                                {/* Saved Cards Section */}
-                                <div className="space-y-4">
-                                    <div className="relative glass-card-active p-5 rounded-lg border-2 border-neon-green flex items-center gap-4 group cursor-pointer">
-                                        <div className="bg-white/10 p-2 rounded-md">
-                                            <svg className="h-8 w-12" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M45 35c0 2.209-1.791 4-4 4H7c-2.209 0-4-1.791-4-4V13c0-2.209 1.791-4 4-4h34c2.209 0 4 1.791 4 4v22z" fill="#1a1a1a"></path>
-                                                <path d="M3 13v6h42v-6c0-2.209-1.791-4-4-4H7c-2.209 0-4 1.791-4 4z" fill="#0E4595"></path>
-                                                <path d="M16.48 32l1.92-5.44h4.48L24.8 32h2.24L21.6 20h-2.24L14.24 32h2.24zm3.84-7.68h2.24l-1.12 3.2-1.12-3.2z" fill="#fff"></path>
-                                            </svg>
-                                        </div>
-                                        <div className="flex-1">
-                                            <div className="flex items-center gap-2">
-                                                <p className="text-white font-bold">Visa Classic</p>
-                                                <span className="bg-neon-green/20 text-neon-green text-[10px] font-bold px-2 py-0.5 rounded uppercase">Primary</span>
-                                            </div>
-                                            <p className="text-slate-400 text-sm">Ending in 4242 • Exp 12/26</p>
-                                        </div>
-                                        <div className="size-6 rounded-full bg-neon-green flex items-center justify-center">
-                                            <span className="material-symbols-outlined text-white text-sm font-bold">check</span>
-                                        </div>
+                            <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-8 py-10 border-y border-white/5">
+                                {[
+                                    { lab: "Date", val: "Oct 24, 2026" },
+                                    { lab: "Window", val: "20:00 - 22:00" },
+                                    { lab: "Duration", val: "120 Minutes" },
+                                    { lab: "Access", val: "22 Personnel" }
+                                ].map((item, i) => (
+                                    <div key={i}>
+                                        <p className="text-white/20 text-[9px] font-black uppercase tracking-[0.2em] mb-2">{item.lab}</p>
+                                        <p className="text-white text-[11px] font-black uppercase tracking-widest leading-none">{item.val}</p>
                                     </div>
-                                    <div className="relative glass p-5 rounded-lg border border-white/5 flex items-center gap-4 group cursor-pointer hover:bg-white/5 transition-colors">
-                                        <div className="bg-white/10 p-2 rounded-md">
-                                            <svg className="h-8 w-12" fill="none" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg">
-                                                <rect fill="#222" height="24" rx="4" width="38"></rect>
-                                                <circle cx="15" cy="12" fill="#EB001B" r="7"></circle>
-                                                <circle cx="23" cy="12" fill="#F79E1B" fillOpacity="0.8" r="7"></circle>
-                                            </svg>
-                                        </div>
-                                        <div className="flex-1">
-                                            <p className="text-white font-bold">Mastercard</p>
-                                            <p className="text-slate-400 text-sm">Ending in 8891 • Exp 05/25</p>
-                                        </div>
-                                        <div className="size-6 rounded-full border border-white/20"></div>
+                                ))}
+                            </div>
+
+                            <div className="mt-10 space-y-4">
+                                <div className="flex justify-between items-center px-4">
+                                    <span className="text-[10px] font-black uppercase tracking-widest text-white/30">Standard Fee (2.0h)</span>
+                                    <span className="text-[11px] font-black tracking-widest">$180.00</span>
+                                </div>
+                                <div className="flex justify-between items-center px-4">
+                                    <span className="text-[10px] font-black uppercase tracking-widest text-white/30">System Processing</span>
+                                    <span className="text-[11px] font-black tracking-widest">$12.50</span>
+                                </div>
+                                <div className="pt-8 mt-6 border-t border-white/5 flex justify-between items-baseline px-4">
+                                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-lime">Grand Total</span>
+                                    <div className="text-right">
+                                        <span className="text-5xl font-black font-display tracking-tighter text-white leading-none">$192<span className="text-2xl font-black text-white/20">.50</span></span>
                                     </div>
                                 </div>
-                                {/* Pay Button */}
-                                <div className="mt-10 space-y-4">
-                                    <button onClick={handlePayment} className="w-full bg-[#22c55e] hover:bg-[#16a34a] text-[#052e16] font-black text-lg py-5 rounded-xl transition-all active:scale-95 shadow-[0_0_25px_rgba(34,197,94,0.3)] flex items-center justify-center gap-3">
-                                        <span className="material-symbols-outlined">payments</span>
-                                        Pay with Saved Card
-                                    </button>
-                                    <p className="text-center text-slate-500 text-xs">By clicking pay, you agree to our <Link className="underline text-slate-400" href="#">Terms of Service</Link></p>
+                            </div>
+                        </section>
+
+                        {/* Security Badges */}
+                        <div className="flex flex-wrap gap-12 opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700 px-6">
+                            {[
+                                { icon: "verified_user", label: "STADIUM-PROTECT" },
+                                { icon: "lock", label: "256-BIT CRYPTO" },
+                                { icon: "credit_score", label: "PCI-DSS ELITE" }
+                            ].map((badge, i) => (
+                                <div key={i} className="flex items-center gap-3">
+                                    <span className="material-symbols-outlined text-lg">{badge.icon}</span>
+                                    <span className="text-[9px] font-black uppercase tracking-[0.2em]">{badge.label}</span>
                                 </div>
-                            </section>
+                            ))}
                         </div>
                     </div>
-                </main>
 
-                <footer className="mt-12 py-8 border-t border-white/5 text-center px-4">
-                    <p className="text-slate-600 text-xs">© 2023 StadiumBook Premium Venues Ltd. All rights reserved.</p>
-                </footer>
-            </div>
+                    {/* Right Column: Payment */}
+                    <div className="lg:col-span-5 space-y-10">
+                        <section className="glass rounded-[2.5rem] p-10 relative border border-white/5">
+                            <div className="flex items-center justify-between mb-12">
+                                <h3 className="text-xl font-black font-display uppercase tracking-wider text-white">Payment Method</h3>
+                                <button className="text-[10px] font-black uppercase tracking-widest text-brand-lime">Modify Slots</button>
+                            </div>
 
-            <style jsx global>{`
-        .glass {
-          background: rgba(255, 255, 255, 0.03);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .glass-card-active {
-          background: rgba(22, 197, 94, 0.05);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
-          border: 1px solid rgba(22, 197, 94, 0.2);
-        }
-      `}</style>
+                            <div className="space-y-4">
+                                <div className="p-1 rounded-[2.2rem] bg-brand-lime">
+                                    <div className="bg-brand-deep p-6 rounded-[2.1rem] flex items-center gap-6 cursor-pointer">
+                                        <div className="size-12 bg-white/5 rounded-2xl flex items-center justify-center border border-white/5">
+                                            <span className="material-symbols-outlined text-brand-lime">credit_card</span>
+                                        </div>
+                                        <div className="flex-1">
+                                            <div className="flex items-center gap-2 mb-1">
+                                                <p className="text-[11px] font-black uppercase tracking-widest text-white">Visa Premier Card</p>
+                                                <span className="size-1.5 bg-brand-lime rounded-full animate-pulse"></span>
+                                            </div>
+                                            <p className="text-[9px] font-bold text-white/30 tracking-[0.2em]">**** **** 4242</p>
+                                        </div>
+                                        <div className="size-6 rounded-full bg-brand-lime flex items-center justify-center">
+                                            <span className="material-symbols-outlined text-brand-deep text-[14px] font-black">check</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="p-6 rounded-[2.2rem] glass-morphism flex items-center gap-6 cursor-pointer hover:bg-white/5 transition-all duration-300">
+                                    <div className="size-12 bg-white/5 rounded-2xl flex items-center justify-center border border-white/5">
+                                        <span className="material-symbols-outlined">payments</span>
+                                    </div>
+                                    <div className="flex-1 text-left">
+                                        <p className="text-[11px] font-black uppercase tracking-widest text-white/40">Alternative Gateway</p>
+                                        <p className="text-[9px] font-bold text-white/20 tracking-[0.2em]">Digital Wallet, Crypto</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mt-16 space-y-6">
+                                <button onClick={handlePayment} className="w-full btn-lime font-display py-6 text-sm">
+                                    Authorize Payment
+                                </button>
+                                <p className="text-center text-white/20 text-[9px] font-bold uppercase tracking-widest leading-relaxed">
+                                    By authorizing, you agree to the STADIUMBOOK <Link className="text-white/40 underline underline-offset-4" href="#">Elite Protocols</Link> & cancellation policies.
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </main>
+
+            <footer className="py-12 border-t border-white/5 text-center">
+                <p className="text-white/20 text-[9px] font-black uppercase tracking-[0.2em]">© 2026 STADIUMBOOK GLOBAL. ELITE ACCESS GUARANTEED.</p>
+            </footer>
         </div>
     );
 }

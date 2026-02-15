@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
 
 export default function VenueGallery() {
     const venues = [
@@ -61,236 +62,167 @@ export default function VenueGallery() {
     ];
 
     return (
-        <div className="bg-background-dark text-white min-h-screen">
-            {/* Top Navigation Bar */}
-            <header className="sticky top-0 z-50 glass border-b border-white/10 px-6 py-4">
-                <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    <div className="flex items-center gap-8">
-                        <Link href="/" className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-neon-green text-3xl">stadium</span>
-                            <h1 className="text-xl font-bold tracking-tight">STADIUM<span className="text-neon-green">BOOK</span></h1>
-                        </Link>
-                        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
-                            <Link className="text-white hover:text-neon-green transition-colors" href="/venues">Venues</Link>
-                            <Link className="hover:text-neon-green transition-colors" href="/dashboard">My Bookings</Link>
-                            <Link className="hover:text-neon-green transition-colors" href="#">Tournaments</Link>
-                            <Link className="hover:text-neon-green transition-colors" href="/settings">Support</Link>
-                        </nav>
-                    </div>
-                    <div className="flex items-center gap-4">
-                        <button className="p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
-                            <span className="material-symbols-outlined text-white/80">notifications</span>
-                        </button>
-                        <Link href="/settings" className="h-10 w-10 rounded-full border-2 border-neon-green overflow-hidden">
-                            <img className="w-full h-full object-cover" alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1XA0VIJR55SXrWxcAiFOnbF8m4-JT0HiBU3Owt2hA80IWYfpW3sWmXGHjisRAJeXGEguv_QtQlE14ZCrWcbcUPJ5h16z4ygo8FMDghPNjizsAvHTQnPCdR4kKsbirdMqdGnSG6t2_4RFT1kwfXp0fe3_Eo8ch3f0IBpbXlIWPF2QdgI1nu9-InJTt5jqhEcx_9WiUTsZect57Stbm9uMUPR0efgrAt_UPBeB5ydkQSV_v9ugubhOdOrweohDhcoLzw4fXTIbd96yw" />
-                        </Link>
-                    </div>
-                </div>
-            </header>
+        <div className="bg-brand-deep text-white min-h-screen">
+            <Navbar />
 
-            <main className="max-w-7xl mx-auto px-6 py-12">
+            <main className="max-w-7xl mx-auto px-6 pt-32 pb-20">
                 {/* Hero Search & Filter Section */}
-                <section className="mb-12">
-                    <div className="text-center mb-10">
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4">Find Your Perfect Arena</h2>
-                        <p className="text-white/60 text-lg">Book premium sports facilities in your city with instant confirmation.</p>
+                <section className="mb-20">
+                    <div className="max-w-3xl mx-auto text-center mb-12">
+                        <h2 className="text-4xl lg:text-5xl font-black mb-6 font-display tracking-tight uppercase">Discover <span className="gradient-text">Elite</span> Arenas</h2>
+                        <p className="text-white/40 text-lg font-medium leading-relaxed">STADIUMBOOK connects you with the highest-rated sports facilities globally. Search, Compare, and Book in seconds.</p>
                     </div>
-                    <div className="glass p-2 rounded-2xl flex flex-col md:flex-row items-center gap-2 max-w-5xl mx-auto">
-                        <div className="flex-1 w-full flex items-center px-4 gap-3 border-b md:border-b-0 md:border-r border-white/10 py-2">
-                            <span className="material-symbols-outlined text-white/40">search</span>
-                            <input className="bg-transparent border-none focus:ring-0 text-white placeholder-white/40 w-full text-sm" placeholder="Search by venue name or location..." type="text" />
+
+                    <div className="glass-morphism p-3 rounded-[2.5rem] flex flex-col md:flex-row items-center gap-3 max-w-5xl mx-auto">
+                        <div className="flex-1 w-full flex items-center px-6 gap-4 border-b md:border-b-0 md:border-r border-white/5 py-3">
+                            <span className="material-symbols-outlined text-brand-lime">search</span>
+                            <input className="bg-transparent border-none focus:ring-0 text-white placeholder-white/20 w-full text-sm font-medium" placeholder="Search venues..." type="text" />
                         </div>
-                        <div className="flex-1 w-full flex items-center px-4 gap-3 border-b md:border-b-0 md:border-r border-white/10 py-2">
-                            <span className="material-symbols-outlined text-white/40">sports_soccer</span>
-                            <select className="bg-transparent border-none focus:ring-0 text-white/80 text-sm w-full cursor-pointer">
-                                <option className="bg-background-dark">All Sports</option>
-                                <option className="bg-background-dark">Football</option>
-                                <option className="bg-background-dark">Tennis</option>
-                                <option className="bg-background-dark">Padel</option>
-                                <option className="bg-background-dark">Basketball</option>
+                        <div className="flex-1 w-full flex items-center px-6 gap-4 border-b md:border-b-0 md:border-r border-white/5 py-3">
+                            <span className="material-symbols-outlined text-brand-lime">sports_soccer</span>
+                            <select className="bg-transparent border-none focus:ring-0 text-white/60 text-sm w-full cursor-pointer font-medium">
+                                <option className="bg-brand-deep">All Sports</option>
+                                <option className="bg-brand-deep">Football</option>
+                                <option className="bg-brand-deep">Tennis</option>
+                                <option className="bg-brand-deep">Padel</option>
+                                <option className="bg-brand-deep">Basketball</option>
                             </select>
                         </div>
-                        <div className="flex-1 w-full flex items-center px-4 gap-3 py-2">
-                            <span className="material-symbols-outlined text-white/40">calendar_today</span>
-                            <input className="bg-transparent border-none focus:ring-0 text-white/80 text-sm w-full [color-scheme:dark]" type="date" />
+                        <div className="flex-1 w-full flex items-center px-6 gap-4 py-3">
+                            <span className="material-symbols-outlined text-brand-lime">event</span>
+                            <input className="bg-transparent border-none focus:ring-0 text-white/40 text-sm w-full [color-scheme:dark] font-medium" type="date" />
                         </div>
-                        <button className="w-full md:w-auto bg-neon-green hover:bg-neon-green/90 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg shadow-neon-green/20">
-                            Search
+                        <button className="w-full md:w-auto btn-lime font-display">
+                            Find Slots
                         </button>
                     </div>
-                    {/* Quick Sport Chips */}
-                    <div className="flex flex-wrap justify-center gap-3 mt-8">
-                        <button className="flex items-center gap-2 px-5 py-2 rounded-full glass text-sm font-medium border-neon-green/50 text-neon-green">
-                            <span className="material-symbols-outlined text-[18px]">sports_soccer</span> Football
-                        </button>
-                        <button className="flex items-center gap-2 px-5 py-2 rounded-full glass text-sm font-medium hover:border-white/20 transition-all">
-                            <span className="material-symbols-outlined text-[18px]">sports_tennis</span> Tennis
-                        </button>
-                        <button className="flex items-center gap-2 px-5 py-2 rounded-full glass text-sm font-medium hover:border-white/20 transition-all">
-                            <span className="material-symbols-outlined text-[18px]">sports_kabaddi</span> Padel
-                        </button>
-                        <button className="flex items-center gap-2 px-5 py-2 rounded-full glass text-sm font-medium hover:border-white/20 transition-all">
-                            <span className="material-symbols-outlined text-[18px]">sports_basketball</span> Basketball
-                        </button>
-                        <button className="flex items-center gap-2 px-5 py-2 rounded-full glass text-sm font-medium hover:border-white/20 transition-all">
-                            <span className="material-symbols-outlined text-[18px]">sports_cricket</span> Cricket
-                        </button>
+
+                    <div className="flex flex-wrap justify-center gap-4 mt-12">
+                        {["Football", "Tennis", "Padel", "Basketball", "Cricket"].map((sport) => (
+                            <button key={sport} className="px-6 py-2.5 rounded-full glass border border-white/5 text-[11px] font-black uppercase tracking-widest hover:border-brand-lime/40 hover:text-brand-lime hover:bg-brand-lime/5 transition-all">
+                                {sport}
+                            </button>
+                        ))}
                     </div>
                 </section>
 
                 {/* Venue Grid Section */}
                 <section>
-                    <div className="flex items-center justify-between mb-8">
-                        <h3 className="text-xl font-semibold">Popular Venues <span className="text-white/40 font-normal ml-2">24 venues found</span></h3>
-                        <div className="flex items-center gap-2 text-sm text-white/60">
-                            <span>Sort by:</span>
-                            <select className="bg-transparent border-none focus:ring-0 text-white font-medium p-0">
-                                <option className="bg-background-dark">Top Rated</option>
-                                <option className="bg-background-dark">Price: Low to High</option>
-                                <option className="bg-background-dark">Distance</option>
+                    <div className="flex items-center justify-between mb-12 px-2">
+                        <h3 className="text-xl font-black font-display uppercase tracking-wider">Premium Selection <span className="text-white/20 font-medium ml-3 normal-case tracking-normal">24 results</span></h3>
+                        <div className="flex items-center gap-3 text-[11px] font-black uppercase tracking-widest text-white/40">
+                            <span>Sort By</span>
+                            <select className="bg-transparent border-none focus:ring-0 text-brand-lime p-0 cursor-pointer">
+                                <option className="bg-brand-deep">Recommended</option>
+                                <option className="bg-brand-deep">Price: Low to High</option>
+                                <option className="bg-brand-deep">Top Rated</option>
                             </select>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                         {venues.map((venue) => (
-                            <div key={venue.id} className="glass rounded-xl overflow-hidden venue-card-hover transition-all duration-300 group">
-                                <div className="relative h-64 w-full">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent z-10"></div>
-                                    <img className="w-full h-full object-cover" alt={venue.name} src={venue.image} />
-                                    <div className={`absolute top-4 left-4 z-20 ${venue.status.includes('Available') ? 'bg-neon-green' : 'bg-white/20 backdrop-blur-md'} text-white text-[10px] font-bold px-2 py-1 rounded tracking-wider uppercase`}>
-                                        {venue.status}
+                            <Link href={`/venues/${venue.id}`} key={venue.id} className="glass-card rounded-[2rem] overflow-hidden group">
+                                <div className="relative h-64 w-full overflow-hidden">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/60 via-transparent to-transparent z-10"></div>
+                                    <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt={venue.name} src={venue.image} />
+                                    <div className="absolute top-4 left-4 z-20 flex gap-2">
+                                        <div className={`px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-wider ${venue.status.includes('Available') ? 'bg-brand-lime text-brand-deep' : 'bg-white/10 text-white backdrop-blur-md border border-white/10'}`}>
+                                            {venue.status}
+                                        </div>
                                     </div>
-                                    <button className="absolute top-4 right-4 z-20 bg-black/40 backdrop-blur-md p-2 rounded-full hover:text-red-500 transition-colors">
-                                        <span className="material-symbols-outlined text-[20px]">favorite</span>
+                                    <button className="absolute top-4 right-4 z-20 size-10 rounded-full glass border-white/10 flex items-center justify-center hover:bg-red-500/20 hover:text-red-500 transition-all duration-300">
+                                        <span className="material-symbols-outlined text-lg">favorite</span>
                                     </button>
                                 </div>
-                                <div className="p-6 relative">
-                                    <div className="flex justify-between items-start mb-2">
-                                        <h4 className="text-lg font-bold">{venue.name}</h4>
-                                        <div className="flex items-center gap-1 text-yellow-500">
-                                            <span className="material-symbols-outlined text-[18px] fill-current">star</span>
-                                            <span className="text-sm font-bold text-white">{venue.rating}</span>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-white/50 text-sm mb-4">
-                                        <span className="material-symbols-outlined text-[16px]">location_on</span>
-                                        <span>{venue.location}</span>
-                                    </div>
-                                    <div className="flex items-center justify-between mt-6">
+                                <div className="p-8">
+                                    <div className="flex justify-between items-start mb-4">
                                         <div>
-                                            <span className="text-neon-green text-xl font-bold">${venue.price}</span>
-                                            <span className="text-white/40 text-sm">/ hour</span>
+                                            <h4 className="text-xl font-bold mb-1 font-display uppercase tracking-tight group-hover:text-brand-lime transition-colors">{venue.name}</h4>
+                                            <div className="flex items-center gap-2 text-white/30 text-[11px] font-medium">
+                                                <span className="material-symbols-outlined text-sm">location_on</span>
+                                                {venue.location}
+                                            </div>
                                         </div>
-                                        <Link href={`/venues/${venue.id}`}>
-                                            <button className="bg-neon-green hover:bg-neon-green/90 text-white px-6 py-2.5 rounded-lg font-bold text-sm transition-all">
-                                                Book Now
-                                            </button>
-                                        </Link>
+                                        <div className="flex items-center gap-1 glass px-2 py-1 rounded-lg border-white/5">
+                                            <span className="material-symbols-outlined text-[14px] text-yellow-500 fill-current">star</span>
+                                            <span className="text-xs font-bold">{venue.rating}</span>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/5">
+                                        <div className="flex flex-col">
+                                            <span className="text-[10px] text-white/30 uppercase font-bold tracking-widest mb-0.5">Starting At</span>
+                                            <span className="text-2xl font-black font-display tracking-tight text-white">${venue.price}<span className="text-sm font-medium text-white/20">/hr</span></span>
+                                        </div>
+                                        <div className="btn-lime py-2.5 px-6 font-display text-[11px]">
+                                            Book Arena
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
 
                     {/* Pagination */}
-                    <div className="mt-16 flex justify-center items-center gap-4">
-                        <button className="w-10 h-10 flex items-center justify-center rounded-lg glass text-white/40 cursor-not-allowed">
-                            <span className="material-symbols-outlined">chevron_left</span>
+                    <div className="mt-20 flex justify-center items-center gap-3">
+                        <button className="size-12 flex items-center justify-center rounded-2xl glass border-white/5 text-white/20 hover:text-white transition-all">
+                            <span className="material-symbols-outlined">west</span>
                         </button>
                         <div className="flex gap-2">
-                            <button className="w-10 h-10 flex items-center justify-center rounded-lg bg-neon-green text-white font-bold">1</button>
-                            <button className="w-10 h-10 flex items-center justify-center rounded-lg glass text-white/60 hover:border-white/20">2</button>
-                            <button className="w-10 h-10 flex items-center justify-center rounded-lg glass text-white/60 hover:border-white/20">3</button>
-                            <span className="text-white/40 px-2">...</span>
-                            <button className="w-10 h-10 flex items-center justify-center rounded-lg glass text-white/60 hover:border-white/20">8</button>
+                            <button className="size-12 rounded-2xl bg-brand-lime text-brand-deep font-black shadow-lg shadow-brand-lime/20">1</button>
+                            <button className="size-12 rounded-2xl glass border-white/5 text-white/40 font-black hover:border-brand-lime/20 hover:text-brand-lime transition-all">2</button>
+                            <button className="size-12 rounded-2xl glass border-white/5 text-white/40 font-black hover:border-brand-lime/20 hover:text-brand-lime transition-all">3</button>
                         </div>
-                        <button className="w-10 h-10 flex items-center justify-center rounded-lg glass text-white/60 hover:border-white/20">
-                            <span className="material-symbols-outlined">chevron_right</span>
+                        <button className="size-12 flex items-center justify-center rounded-2xl glass border-white/5 text-white/40 hover:text-white transition-all">
+                            <span className="material-symbols-outlined">east</span>
                         </button>
                     </div>
                 </section>
             </main>
 
-            {/* Map View Toggle Floating Button */}
-            <button className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-white text-background-dark font-bold px-8 py-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform z-40">
-                <span className="material-symbols-outlined">map</span>
-                Show Map View
-            </button>
-
-            {/* Footer */}
-            <footer className="bg-black/40 border-t border-white/10 mt-20 pt-16 pb-8">
+            <footer className="bg-brand-deep border-t border-white/5 pt-20 pb-10">
                 <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
                         <div className="col-span-1 md:col-span-1">
-                            <div className="flex items-center gap-2 mb-6">
-                                <span className="material-symbols-outlined text-neon-green text-2xl">stadium</span>
-                                <h1 className="text-lg font-bold tracking-tight">STADIUM<span className="text-neon-green">BOOK</span></h1>
-                            </div>
-                            <p className="text-white/40 text-sm leading-relaxed mb-6">
-                                Connecting athletes with premium venues. The world's leading sports facility booking platform.
+                            <Link href="/" className="flex items-center gap-2 mb-8">
+                                <div className="size-8 bg-brand-lime rounded-lg flex items-center justify-center">
+                                    <span className="material-symbols-outlined text-brand-deep text-lg font-black italic">bolt</span>
+                                </div>
+                                <span className="text-xl font-display font-black uppercase tracking-[0.1em]">STADIUM<span className="text-brand-lime">BOOK</span></span>
+                            </Link>
+                            <p className="text-white/30 text-xs leading-relaxed font-medium mb-8 max-w-xs">
+                                Redefining sports facility reservation through speed, technology, and elite access.
                             </p>
-                            <div className="flex gap-4">
-                                <a className="w-10 h-10 flex items-center justify-center rounded-lg glass text-white/60 hover:text-neon-green transition-colors" href="#">
-                                    <span className="material-symbols-outlined text-lg">share</span>
-                                </a>
-                                <a className="w-10 h-10 flex items-center justify-center rounded-lg glass text-white/60 hover:text-neon-green transition-colors" href="#">
-                                    <span className="material-symbols-outlined text-lg">rss_feed</span>
-                                </a>
-                                <a className="w-10 h-10 flex items-center justify-center rounded-lg glass text-white/60 hover:text-neon-green transition-colors" href="#">
-                                    <span className="material-symbols-outlined text-lg">mail</span>
-                                </a>
+                            <div className="flex gap-3">
+                                {["facebook", "twitter", "instagram"].map(social => (
+                                    <button key={social} className="size-10 rounded-xl glass border-white/5 flex items-center justify-center hover:bg-brand-lime hover:text-brand-deep transition-all duration-500">
+                                        <span className="material-symbols-outlined text-sm">share</span>
+                                    </button>
+                                ))}
                             </div>
                         </div>
-                        <div>
-                            <h5 className="text-sm font-bold uppercase tracking-widest mb-6">Discovery</h5>
-                            <ul className="space-y-4 text-sm text-white/40">
-                                <li><a className="hover:text-neon-green transition-colors" href="#">New Venues</a></li>
-                                <li><a className="hover:text-neon-green transition-colors" href="#">Popular Sports</a></li>
-                                <li><a className="hover:text-neon-green transition-colors" href="#">Top Rated Arena</a></li>
-                                <li><a className="hover:text-neon-green transition-colors" href="#">Nearby Facilities</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5 className="text-sm font-bold uppercase tracking-widest mb-6">Business</h5>
-                            <ul className="space-y-4 text-sm text-white/40">
-                                <li><a className="hover:text-neon-green transition-colors" href="#">List your Venue</a></li>
-                                <li><a className="hover:text-neon-green transition-colors" href="#">Partner Program</a></li>
-                                <li><a className="hover:text-neon-green transition-colors" href="#">Advertising</a></li>
-                                <li><a className="hover:text-neon-green transition-colors" href="#">Case Studies</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5 className="text-sm font-bold uppercase tracking-widest mb-6">Support</h5>
-                            <ul className="space-y-4 text-sm text-white/40">
-                                <li><a className="hover:text-neon-green transition-colors" href="#">Help Center</a></li>
-                                <li><a className="hover:text-neon-green transition-colors" href="#">Cancellation Policy</a></li>
-                                <li><a className="hover:text-neon-green transition-colors" href="#">Booking Guide</a></li>
-                                <li><a className="hover:text-neon-green transition-colors" href="#">Contact Us</a></li>
-                            </ul>
-                        </div>
+                        {["Discovery", "Company", "Opportunities", "Support"].map((title) => (
+                            <div key={title}>
+                                <h5 className="text-[11px] font-black uppercase tracking-[0.2em] mb-8 text-white/60">{title}</h5>
+                                <ul className="space-y-4 text-[11px] font-black uppercase tracking-widest text-white/30">
+                                    <li><a className="hover:text-brand-lime transition-colors" href="#">Quick Link 1</a></li>
+                                    <li><a className="hover:text-brand-lime transition-colors" href="#">Quick Link 2</a></li>
+                                    <li><a className="hover:text-brand-lime transition-colors" href="#">Quick Link 3</a></li>
+                                </ul>
+                            </div>
+                        ))}
                     </div>
-                    <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/20">
-                        <p>© 2024 StadiumBooking Marketplace. All rights reserved.</p>
-                        <div className="flex gap-8">
-                            <a className="hover:text-white transition-colors" href="#">Privacy Policy</a>
-                            <a className="hover:text-white transition-colors" href="#">Terms of Service</a>
-                            <a className="hover:text-white transition-colors" href="#">Cookie Settings</a>
+                    <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] font-black uppercase tracking-[0.3em] text-white/20">
+                        <p>© 2026 STADIUMBOOK GLOBAL. ALL RIGHTS RESERVED.</p>
+                        <div className="flex gap-10">
+                            <a href="#" className="hover:text-white transition-colors">Privacy</a>
+                            <a href="#" className="hover:text-white transition-colors">Terms</a>
+                            <a href="#" className="hover:text-white transition-colors">Cookies</a>
                         </div>
                     </div>
                 </div>
             </footer>
-
-            <style jsx global>{`
-        .glass {
-          background: rgba(255, 255, 255, 0.03);
-          backdrop-filter: blur(12px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .venue-card-hover:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 0 20px rgba(22, 163, 74, 0.15);
-        }
-      `}</style>
         </div>
     );
 }
