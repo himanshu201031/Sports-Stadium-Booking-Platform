@@ -1,83 +1,65 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Features from "@/components/Features";
-import BookingForm from "@/components/BookingForm";
+import AboutSection from "@/components/AboutSection";
+import DiscountsSection from "@/components/DiscountsSection";
+import AmenitiesSection from "@/components/AmenitiesSection";
+import EventsSection from "@/components/EventsSection";
+import VideoSection from "@/components/VideoSection";
+import CTASection from "@/components/CTASection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 export default function Home() {
     return (
-        <main className="min-h-screen">
+        <main className="min-h-screen bg-brand-deep">
             <Navbar />
             <Hero />
-            <Features />
-            <BookingForm />
+            <AboutSection />
+            <DiscountsSection />
+            <AmenitiesSection />
+            <EventsSection />
+            <VideoSection />
+            <CTASection />
+            <TestimonialsSection />
 
             {/* Footer */}
-            <footer className="bg-dark-900 border-t border-white/10 py-12">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                        {/* Brand */}
+            <footer className="bg-brand-deep py-20 px-6 lg:px-12 border-t border-white/5">
+                <div className="container mx-auto">
+                    <div className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 text-center md:text-left">
                         <div>
-                            <div className="flex items-center space-x-2 mb-4">
-                                <div className="w-10 h-10 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg flex items-center justify-center">
-                                    <span className="text-white font-bold text-xl">S</span>
-                                </div>
-                                <span className="text-white font-bold text-xl">
-                                    Stadium<span className="gradient-text">Book</span>
-                                </span>
+                            <div className="text-2xl font-black text-white tracking-tighter mb-4">
+                                PTR<span className="text-brand-lime">.</span>
                             </div>
-                            <p className="text-gray-400 text-sm">
-                                Your trusted platform for booking sports stadiums quickly and easily.
+                            <p className="text-white/40 text-[10px] uppercase font-black tracking-widest leading-relaxed">
+                                Innovation Management Pre-professional <br /> Musical Instrument.
                             </p>
                         </div>
 
-                        {/* Quick Links */}
-                        <div>
-                            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-                            <ul className="space-y-2">
-                                <li>
-                                    <a href="#home" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
-                                        Home
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#features" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
-                                        Features
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#booking" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
-                                        Book Now
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        {/* Contact */}
-                        <div>
-                            <h3 className="text-white font-semibold mb-4">Contact Us</h3>
-                            <ul className="space-y-2 text-sm text-gray-400">
-                                <li className="flex items-center space-x-2">
-                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                                    </svg>
-                                    <span>support@stadiumbook.com</span>
-                                </li>
-                                <li className="flex items-center space-x-2">
-                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                                    </svg>
-                                    <span>+1 (555) 123-4567</span>
-                                </li>
-                            </ul>
+                        <div className="flex space-x-12">
+                            <div className="space-y-4">
+                                <h4 className="text-xs font-black uppercase text-white/20 tracking-widest">Main Menu</h4>
+                                <ul className="space-y-2 text-sm font-bold text-white/60">
+                                    <li className="hover:text-brand-lime transition-colors cursor-pointer">Home</li>
+                                    <li className="hover:text-brand-lime transition-colors cursor-pointer">About</li>
+                                    <li className="hover:text-brand-lime transition-colors cursor-pointer">Court</li>
+                                </ul>
+                            </div>
+                            <div className="space-y-4">
+                                <h4 className="text-xs font-black uppercase text-white/20 tracking-widest">Contacts</h4>
+                                <ul className="space-y-2 text-sm font-bold text-white/60">
+                                    <li className="hover:text-brand-lime transition-colors cursor-pointer">+880 123 456 789</li>
+                                    <li className="hover:text-brand-lime transition-colors cursor-pointer">info@ptrstadium.com</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-
-                    {/* Copyright */}
-                    <div className="border-t border-white/10 pt-8 text-center">
-                        <p className="text-gray-400 text-sm">
-                            © {new Date().getFullYear()} StadiumBook. All rights reserved.
-                        </p>
+                    <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.3em] text-white/20">
+                        <p>© 2024 PTR STADIUM. ALL RIGHTS RESERVED.</p>
+                        <div className="flex space-x-8 mt-4 md:mt-0">
+                            <span className="hover:text-white transition-colors cursor-pointer">Terms & Conditions</span>
+                            <span className="hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
+                        </div>
                     </div>
                 </div>
             </footer>

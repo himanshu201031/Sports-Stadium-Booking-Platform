@@ -9,71 +9,31 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                primary: {
-                    50: '#e6f7f0',
-                    100: '#b3e6d1',
-                    200: '#80d5b2',
-                    300: '#4dc493',
-                    400: '#1ab374',
-                    500: '#00a35c',
-                    600: '#008a4d',
-                    700: '#00713e',
-                    800: '#00582f',
-                    900: '#003f20',
+                brand: {
+                    lime: '#b6f09c',
+                    green: '#00a35c',
+                    dark: '#0a1a0f',
+                    deep: '#050a06',
+                    muted: '#8e9e90',
                 },
-                dark: {
-                    50: '#f5f5f5',
-                    100: '#e0e0e0',
-                    200: '#bdbdbd',
-                    300: '#9e9e9e',
-                    400: '#757575',
-                    500: '#616161',
-                    600: '#424242',
-                    700: '#303030',
-                    800: '#1a1a1a',
-                    900: '#0a0a0a',
-                },
+                "neon-green": "#16A34A",
+                "background-dark": "#0f172a",
+                "background-light": "#f6f6f8",
+                "primary-blue": "#2463eb",
             },
             backgroundImage: {
-                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-                'stadium-gradient': 'linear-gradient(135deg, #0a4d2e 0%, #1a5c3a 50%, #0f3d28 100%)',
-                'hero-gradient': 'linear-gradient(to bottom, rgba(10, 77, 46, 0.9), rgba(15, 61, 40, 0.95))',
+                'stadium-hero': "linear-gradient(rgba(10, 26, 15, 0.7), rgba(10, 26, 15, 0.9)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2000&auto=format&fit=crop')",
+                'stadium-view': "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1522770179533-24471fcdba45?q=80&w=2000&auto=format&fit=crop')",
             },
-            animation: {
-                'fade-in': 'fadeIn 0.6s ease-in-out',
-                'slide-up': 'slideUp 0.6s ease-out',
-                'scale-in': 'scaleIn 0.4s ease-out',
-                'float': 'float 3s ease-in-out infinite',
-            },
-            keyframes: {
-                fadeIn: {
-                    '0%': { opacity: '0' },
-                    '100%': { opacity: '1' },
-                },
-                slideUp: {
-                    '0%': { transform: 'translateY(30px)', opacity: '0' },
-                    '100%': { transform: 'translateY(0)', opacity: '1' },
-                },
-                scaleIn: {
-                    '0%': { transform: 'scale(0.9)', opacity: '0' },
-                    '100%': { transform: 'scale(1)', opacity: '1' },
-                },
-                float: {
-                    '0%, 100%': { transform: 'translateY(0px)' },
-                    '50%': { transform: 'translateY(-10px)' },
-                },
-            },
-            boxShadow: {
-                'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
-                'glow': '0 0 20px rgba(0, 163, 92, 0.5)',
-            },
-            backdropBlur: {
-                xs: '2px',
+            borderRadius: {
+                '3xl': '1.5rem',
+                '4xl': '2rem',
             },
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/forms'),
+    ],
 };
 
 export default config;
