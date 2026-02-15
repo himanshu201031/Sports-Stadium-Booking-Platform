@@ -35,75 +35,74 @@ export default function Features() {
         <section id="features" className="py-20 sm:py-32 relative">
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-1/4 left-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-primary-600/10 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-brand-lime/5 rounded-full blur-[120px]"></div>
+                <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px]"></div>
             </div>
 
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
                 {/* Section Header */}
-                <div className="text-center mb-16 animate-fade-in">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-                        Why Choose <span className="gradient-text">Us</span>
+                <div className="text-center mb-24 max-w-3xl mx-auto">
+                    <div className="inline-block px-4 py-1.5 rounded-full border border-white/10 text-[10px] font-black uppercase tracking-[0.4em] mb-10 text-white/40">
+                        Operational Excellence
+                    </div>
+                    <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter uppercase font-display italic">
+                        Why Choose <span className="text-brand-lime">STADIUMBOOK</span>
                     </h2>
-                    <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                        Experience the best stadium booking platform with features designed for your convenience
+                    <p className="text-[11px] text-white/30 uppercase tracking-[0.2em] font-bold italic">
+                        The ultimate synthesis of athletic passion and technological precision.
                     </p>
                 </div>
 
                 {/* Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    {features.map((feature, index) => (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    {[
+                        { icon: "speed", title: "Instant Access", desc: "Proprietary low-latency reservation engine for millisecond confirmation." },
+                        { icon: "stadia_controller", title: "Elite Arenas", desc: "Curated selection of professional-grade courts and high-performance complexes." },
+                        { icon: "security", title: "Vault Security", desc: "Military-grade encryption for all financial transactions and personal data." }
+                    ].map((feature, index) => (
                         <div
                             key={index}
-                            className="glass-dark rounded-2xl p-8 hover:scale-105 transition-all duration-300 hover:shadow-glow group animate-scale-in"
-                            style={{ animationDelay: `${index * 0.1}s` }}
+                            className="glass-morphism rounded-[2.5rem] p-10 hover:-translate-y-2 transition-all duration-700 border border-white/5 group hover:border-brand-lime/20"
                         >
-                            {/* Icon */}
-                            <div className="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-xl flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-transform duration-300">
-                                {feature.icon}
+                            <div className="size-16 bg-brand-lime rounded-2xl flex items-center justify-center mb-10 text-brand-deep shadow-lg shadow-brand-lime/20 group-hover:scale-110 transition-transform duration-500">
+                                <span className="material-symbols-outlined text-3xl font-black italic">{feature.icon}</span>
                             </div>
 
-                            {/* Title */}
-                            <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 group-hover:text-primary-400 transition-colors duration-300">
+                            <h3 className="text-2xl font-black text-white mb-4 font-display uppercase tracking-tight italic">
                                 {feature.title}
                             </h3>
 
-                            {/* Description */}
-                            <p className="text-gray-400 leading-relaxed">
-                                {feature.description}
+                            <p className="text-[11px] text-white/30 font-bold uppercase tracking-widest leading-relaxed">
+                                {feature.desc}
                             </p>
                         </div>
                     ))}
                 </div>
 
                 {/* Additional Info */}
-                <div className="mt-16 text-center animate-fade-in">
-                    <div className="glass-dark rounded-2xl p-8 max-w-3xl mx-auto">
-                        <h3 className="text-2xl font-bold text-white mb-4">
-                            Ready to Get Started?
+                <div className="mt-24 text-center">
+                    <div className="glass-morphism rounded-[3rem] p-12 max-w-4xl mx-auto border border-white/5 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-12 opacity-5">
+                            <span className="material-symbols-outlined text-[120px] font-black italic">verified</span>
+                        </div>
+                        <h3 className="text-2xl font-black text-white mb-4 font-display uppercase tracking-tight italic">
+                            Operational Status: <span className="text-brand-lime">Elite</span>
                         </h3>
-                        <p className="text-gray-400 mb-6">
-                            Join thousands of satisfied customers who trust us for their stadium bookings
+                        <p className="text-[10px] text-white/30 font-bold uppercase tracking-[0.3em] mb-10">
+                            Join the ranks of professional athletes who optimize their training on our infrastructure.
                         </p>
-                        <div className="flex flex-wrap justify-center gap-4">
-                            <div className="flex items-center space-x-2 text-primary-400">
-                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                </svg>
-                                <span className="text-white">Instant Confirmation</span>
-                            </div>
-                            <div className="flex items-center space-x-2 text-primary-400">
-                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                </svg>
-                                <span className="text-white">24/7 Support</span>
-                            </div>
-                            <div className="flex items-center space-x-2 text-primary-400">
-                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                </svg>
-                                <span className="text-white">Best Prices</span>
-                            </div>
+                        <div className="flex flex-wrap justify-center gap-8">
+                            {[
+                                { label: "Performance", val: "Instant" },
+                                { label: "Availability", val: "24/7" },
+                                { label: "Security", val: "Elite" }
+                            ].map((stat, i) => (
+                                <div key={i} className="flex items-center gap-3">
+                                    <div className="size-2 bg-brand-lime rounded-full animate-pulse"></div>
+                                    <span className="text-[10px] font-black text-white/60 uppercase tracking-widest">{stat.label}:</span>
+                                    <span className="text-[10px] font-black text-brand-lime uppercase tracking-widest">{stat.val}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>

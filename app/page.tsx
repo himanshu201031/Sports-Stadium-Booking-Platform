@@ -29,11 +29,11 @@ export default function Home() {
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
                         <div className="md:col-span-4 space-y-8">
-                            <Link href="/" className="flex items-center gap-3">
-                                <div className="size-10 bg-brand-lime rounded-xl flex items-center justify-center">
-                                    <span className="material-symbols-outlined text-brand-deep text-2xl font-black italic">bolt</span>
+                            <Link href="/" className="flex items-center gap-3 group">
+                                <div className="size-10 bg-brand-lime rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(217,255,50,0.2)] group-hover:scale-110 transition-transform">
+                                    <span className="material-symbols-outlined text-brand-deep text-2xl font-black italic">stadium</span>
                                 </div>
-                                <h1 className="text-2xl font-black tracking-[0.1em] uppercase">STADIUM<span className="text-brand-lime">BOOK</span></h1>
+                                <h1 className="text-2xl font-black tracking-[0.1em] uppercase italic">STADIUM<span className="text-brand-lime">BOOK</span></h1>
                             </Link>
                             <p className="text-white/30 text-[11px] font-bold uppercase tracking-widest leading-relaxed max-w-sm">
                                 Redefining the athletic experience through elite infrastructure access and seamless digital reservation systems.

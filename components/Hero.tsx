@@ -12,16 +12,16 @@ export default function Hero() {
             <div className="container mx-auto relative px-8 lg:px-16 z-10">
                 {/* Social Icons - Left Side */}
                 <div className="absolute top-0 -left-12 hidden 2xl:flex flex-col space-y-6 items-center">
-                    <p className="text-[10px] uppercase tracking-[0.5em] text-white/30 transform -rotate-90 origin-center mb-16 whitespace-nowrap font-black">Follow STADIUMBOOK</p>
+                    <p className="text-[10px] uppercase tracking-[0.5em] text-brand-lime transform -rotate-90 origin-center mb-16 whitespace-nowrap font-black italic drop-shadow-[0_0_10px_rgba(217,255,50,0.4)]">Follow STADIUMBOOK</p>
                     <div className="flex flex-col space-y-5">
-                        <a href="#" className="glass-card w-10 h-10 rounded-xl flex items-center justify-center hover:bg-brand-lime hover:text-brand-deep transition-all duration-500">
-                            <span className="text-[11px] font-black tracking-tighter">FB</span>
+                        <a href="#" className="glass-card w-12 h-12 rounded-xl flex items-center justify-center hover:bg-brand-lime hover:text-brand-deep transition-all duration-500 hover:shadow-[0_0_20px_rgba(217,255,50,0.4)] group">
+                            <span className="text-[12px] font-black tracking-tighter group-hover:scale-110 transition-transform">FB</span>
                         </a>
-                        <a href="#" className="glass-card w-10 h-10 rounded-xl flex items-center justify-center hover:bg-brand-lime hover:text-brand-deep transition-all duration-500">
-                            <span className="text-[11px] font-black tracking-tighter">TW</span>
+                        <a href="#" className="glass-card w-12 h-12 rounded-xl flex items-center justify-center hover:bg-brand-lime hover:text-brand-deep transition-all duration-500 hover:shadow-[0_0_20px_rgba(217,255,50,0.4)] group">
+                            <span className="text-[12px] font-black tracking-tighter group-hover:scale-110 transition-transform">TW</span>
                         </a>
-                        <a href="#" className="glass-card w-10 h-10 rounded-xl flex items-center justify-center hover:bg-brand-lime hover:text-brand-deep transition-all duration-500">
-                            <span className="text-[11px] font-black tracking-tighter">IG</span>
+                        <a href="#" className="glass-card w-12 h-12 rounded-xl flex items-center justify-center hover:bg-brand-lime hover:text-brand-deep transition-all duration-500 hover:shadow-[0_0_20px_rgba(217,255,50,0.4)] group">
+                            <span className="text-[12px] font-black tracking-tighter group-hover:scale-110 transition-transform">IG</span>
                         </a>
                     </div>
                 </div>

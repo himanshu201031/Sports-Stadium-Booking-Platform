@@ -22,11 +22,11 @@ export default function Navbar() {
         >
             <div className="container mx-auto px-6 lg:px-12">
                 <div className="flex items-center justify-between">
-                    <Link href="/" className="text-2xl font-black text-white tracking-tighter hover:opacity-80 transition-opacity flex items-center gap-2">
-                        <div className="size-8 bg-brand-lime rounded-lg flex items-center justify-center">
-                            <span className="material-symbols-outlined text-brand-deep text-lg font-black italic">bolt</span>
+                    <Link href="/" className="text-2xl font-black text-white tracking-tighter hover:opacity-80 transition-opacity flex items-center gap-2 group">
+                        <div className="size-10 bg-brand-lime rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(217,255,50,0.3)] group-hover:scale-110 transition-transform duration-500">
+                            <span className="material-symbols-outlined text-brand-deep text-2xl font-black italic">stadium</span>
                         </div>
-                        <span className="font-display uppercase tracking-[0.1em]">STADIUM<span className="text-brand-lime">BOOK</span></span>
+                        <span className="font-display uppercase tracking-[0.1em] italic">STADIUM<span className="text-brand-lime">BOOK</span></span>
                     </Link>
 
                     <div className="hidden lg:flex items-center gap-10">

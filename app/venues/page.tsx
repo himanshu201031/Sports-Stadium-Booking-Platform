@@ -145,7 +145,7 @@ export default function VenueGallery() {
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-1 glass px-2 py-1 rounded-lg border-white/5">
-                                            <span className="material-symbols-outlined text-[14px] text-yellow-500 fill-current">star</span>
+                                            <span className="material-symbols-outlined text-[14px] text-brand-lime fill-current">star</span>
                                             <span className="text-xs font-bold">{venue.rating}</span>
                                         </div>
                                     </div>

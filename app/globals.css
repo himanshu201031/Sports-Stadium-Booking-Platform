@@ -33,7 +33,7 @@ body {
     }
 
     .btn-lime {
-        @apply bg-brand-lime text-brand-deep font-black py-3 px-8 rounded-xl transition-all duration-300 hover:shadow-[0_0_20px_rgba(217, 255, 50, 0.3)] hover:scale-[1.02] active:scale-95 text-sm uppercase tracking-wider;
+        @apply bg-brand-lime text-brand-deep font-black py-3 px-8 rounded-xl transition-all duration-300 hover:shadow-[0_0_20px_#d9ff324d] hover:scale-[1.02] active:scale-95 text-sm uppercase tracking-wider;
     }
 }
 
@@ -69,7 +69,7 @@ body {
         background: linear-gradient(135deg, #fff 30%, #D9FF32 100%);
         -webkit-background-clip: text;
         background-clip: text;
-        -webkit-text-fill-color: transparent;
+       -webkit-text-fill-color: transparent;
     }
 }
 
