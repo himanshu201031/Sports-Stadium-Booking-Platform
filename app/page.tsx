@@ -11,18 +11,41 @@ import CTASection from "@/components/CTASection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Link from "next/link";
 
+import Reveal from "@/components/Reveal";
+
 export default function Home() {
     return (
         <main className="min-h-screen bg-brand-deep">
             <Navbar />
             <Hero />
-            <AboutSection />
-            <DiscountsSection />
-            <AmenitiesSection />
-            <EventsSection />
-            <VideoSection />
-            <CTASection />
-            <TestimonialsSection />
+
+            <Reveal direction="up" duration={1.2}>
+                <AboutSection />
+            </Reveal>
+
+            <Reveal direction="up" delay={0.1}>
+                <DiscountsSection />
+            </Reveal>
+
+            <Reveal direction="up">
+                <AmenitiesSection />
+            </Reveal>
+
+            <Reveal direction="up" delay={0.2}>
+                <EventsSection />
+            </Reveal>
+
+            <Reveal direction="up">
+                <VideoSection />
+            </Reveal>
+
+            <Reveal direction="down">
+                <CTASection />
+            </Reveal>
+
+            <Reveal direction="up" delay={0.3}>
+                <TestimonialsSection />
+            </Reveal>
 
             {/* Footer */}
             <footer className="bg-brand-deep py-24 px-6 lg:px-12 border-t border-white/5">

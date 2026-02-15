@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     },
 };
 
+import GSAPInitializer from "@/components/GSAPInitializer";
+import PageTransition from "@/components/PageTransition";
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -23,7 +26,12 @@ export default function RootLayout({
             <head>
                 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
             </head>
-            <body className="antialiased bg-brand-deep text-white selection:bg-brand-lime selection:text-brand-deep">{children}</body>
+            <body className="antialiased bg-brand-deep text-white selection:bg-brand-lime selection:text-brand-deep">
+                <GSAPInitializer />
+                <PageTransition>
+                    {children}
+                </PageTransition>
+            </body>
         </html>
     );
 }
