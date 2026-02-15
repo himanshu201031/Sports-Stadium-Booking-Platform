@@ -221,7 +221,7 @@ export default function VenueGallery() {
                         <div className="col-span-1 md:col-span-1">
                             <Link href="/" className="flex items-center gap-2 mb-8">
                                 <div className="size-8 bg-brand-lime rounded-lg flex items-center justify-center">
-                                    <span className="material-symbols-outlined text-brand-deep text-lg font-black italic">bolt</span>
+                                    <span className="material-symbols-outlined text-brand-deep text-lg font-black italic">stadium</span>
                                 </div>
                                 <span className="text-xl font-display font-black uppercase tracking-[0.1em]">STADIUM<span className="text-brand-lime">BOOK</span></span>
                             </Link>
