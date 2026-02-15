@@ -10,11 +10,11 @@ export default function AmenitiesSection() {
     ];
 
     return (
-        <section id="court" className="py-24 px-6 lg:px-12 bg-white text-brand-deep overflow-hidden relative z-10">
+        <section id="court" className="py-24 px-6 lg:px-12 bg-brand-deep text-white overflow-hidden relative z-10">
             <div className="container mx-auto relative z-10">
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 px-4">
                     <div className="max-w-xl">
-                        <div className="inline-block px-4 py-1.5 rounded-full border border-brand-deep/10 text-[10px] font-black uppercase tracking-[0.4em] mb-10 opacity-60">
+                        <div className="inline-block px-4 py-1.5 rounded-full border border-white/10 text-[10px] font-black uppercase tracking-[0.4em] mb-10 opacity-30 italic">
                             The Elite Experience
                         </div>
                         <h2 className="text-4xl lg:text-6xl font-black leading-[1.1] tracking-tighter uppercase font-display italic">
@@ -22,7 +22,7 @@ export default function AmenitiesSection() {
                             <span className="text-brand-lime">Absolute</span> Precision
                         </h2>
                     </div>
-                    <p className="text-brand-deep/40 text-[11px] font-black uppercase tracking-[0.2em] max-w-sm lg:text-right mt-8 lg:mt-0 leading-relaxed italic">
+                    <p className="text-white/40 text-[11px] font-black uppercase tracking-[0.2em] max-w-sm lg:text-right mt-8 lg:mt-0 leading-relaxed italic">
                         Access world-class facilities equipped with the latest in athletic performance technology and luxury hospitality.
                     </p>
                 </div>
