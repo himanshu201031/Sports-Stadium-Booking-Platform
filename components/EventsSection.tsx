@@ -12,11 +12,11 @@ export default function EventsSection() {
     ];
 
     return (
-        <section id="event" className="py-24 px-6 lg:px-12 bg-white/50 text-brand-deep border-y border-brand-deep/5 relative z-10 overflow-hidden">
+        <section id="event" className="py-24 px-6 lg:px-12 bg-brand-deep text-white border-y border-white/5 relative z-10 overflow-hidden">
             <div className="container mx-auto relative z-10">
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 px-4">
                     <div className="max-w-xl">
-                        <div className="inline-block px-4 py-1.5 rounded-full border border-brand-deep/10 text-[10px] font-black uppercase tracking-[0.4em] mb-10 opacity-60">
+                        <div className="inline-block px-4 py-1.5 rounded-full border border-white/10 text-[10px] font-black uppercase tracking-[0.4em] mb-10 opacity-30 italic">
                             Current Events
                         </div>
                         <h2 className="text-4xl lg:text-6xl font-black leading-[1.1] tracking-tighter uppercase font-display italic">
@@ -24,7 +24,7 @@ export default function EventsSection() {
                             Engineered for <span className="text-brand-lime">Victory</span>
                         </h2>
                     </div>
-                    <p className="text-brand-deep/40 text-[11px] font-black uppercase tracking-[0.2em] max-w-sm lg:text-right mt-8 lg:mt-0 leading-relaxed italic">
+                    <p className="text-white/40 text-[11px] font-black uppercase tracking-[0.2em] max-w-sm lg:text-right mt-8 lg:mt-0 leading-relaxed italic">
                         Real-time stadium management and event synchronization for professional athletic organizations.
                     </p>
                 </div>
@@ -56,14 +56,14 @@ export default function EventsSection() {
                                 </div>
                             </Link>
                         ) : (
-                            <Link key={idx} href="/venues" className="flex items-center justify-between py-8 px-8 border-b border-brand-deep/5 hover:bg-brand-deep/[0.02] transition-all group rounded-2xl block relative overflow-hidden">
+                            <Link key={idx} href="/venues" className="flex items-center justify-between py-8 px-8 border-b border-white/5 hover:bg-white/[0.02] transition-all group rounded-2xl block relative overflow-hidden">
                                 <div className="flex items-center gap-6">
-                                    <span className="text-sm font-black text-brand-deep/10 font-display">0{idx + 1}</span>
-                                    <h3 className="text-xl font-bold text-brand-deep/70 group-hover:text-brand-deep group-hover:translate-x-2 transition-all duration-500 font-display uppercase tracking-tight">{event}</h3>
+                                    <span className="text-sm font-black text-white/10 font-display">0{idx + 1}</span>
+                                    <h3 className="text-xl font-bold text-white/60 group-hover:text-white group-hover:translate-x-2 transition-all duration-500 font-display uppercase tracking-tight italic">{event}</h3>
                                 </div>
                                 <div className="flex items-center gap-4">
-                                    <span className="text-[10px] font-black text-brand-deep/20 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500">View Manifest</span>
-                                    <span className="material-symbols-outlined text-brand-deep/20 group-hover:text-brand-deep transition-all duration-500">east</span>
+                                    <span className="text-[10px] font-black text-white/20 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 italic">View Manifest</span>
+                                    <span className="material-symbols-outlined text-white/20 group-hover:text-brand-lime transition-all duration-500">east</span>
                                 </div>
                             </Link>
                         )

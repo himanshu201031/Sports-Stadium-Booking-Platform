@@ -8,32 +8,32 @@ export default function TestimonialsSection() {
     });
 
     return (
-        <section className="py-24 px-6 lg:px-12 bg-white text-brand-deep">
+        <section className="py-24 px-6 lg:px-12 bg-brand-deep text-white">
             <div className="container mx-auto">
                 <div className="text-center mb-16">
-                    <div className="inline-block px-4 py-1.5 rounded-full border border-brand-deep/10 text-[10px] font-bold uppercase tracking-widest mb-10 opacity-60">
-                        Our Facilities
+                    <div className="inline-block px-4 py-1.5 rounded-full border border-white/10 text-[10px] font-black uppercase tracking-[0.4em] mb-10 opacity-30 italic">
+                        Elite Feedback
                     </div>
-                    <h2 className="text-4xl font-bold leading-tight mb-4">
-                        What Players Are Saying
+                    <h2 className="text-4xl md:text-6xl font-black leading-[1.1] tracking-tighter uppercase font-display mb-8 italic">
+                        Voices of the <span className="text-brand-lime">Arena</span>
                     </h2>
-                    <p className="text-brand-deep/60 text-sm font-medium">Entrepreneur & Inventor RFOS & IoT Solutions Expert Marketing.</p>
+                    <p className="text-white/30 text-[11px] font-black uppercase tracking-[0.2em] italic">Real metrics and validation from professional athletic practitioners.</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {testimonials.map((t, idx) => (
-                        <div key={idx} className="bg-white/50 border border-brand-deep/5 p-8 rounded-3xl hover:border-brand-lime/20 transition-all group">
-                            <svg className="w-8 h-8 text-brand-lime mb-6 opacity-40 group-hover:opacity-100 transition-opacity" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C15.4647 8 15.017 8.44772 15.017 9V12C15.017 12.5523 14.5693 13 14.017 13H11.017C10.4647 13 10.017 12.5523 10.017 12V9C10.017 7.89543 10.9124 7 12.017 7H15.017C16.1216 7 17.017 7.89543 17.017 9V15C17.017 16.1046 16.1216 17 15.017 17H14.017V21H14.017ZM10 11V14.5C10 15.8807 8.88071 17 7.5 17H6.5V21H4.5V17H4.01703C2.91246 17 2.01703 16.1046 2.01703 15V9C2.01703 7.89543 2.91246 7 4.01703 7H7.01703C8.1216 7 9.01703 7.89543 9.01703 9V12C9.01703 12.5523 8.56931 13 8.01703 13H5.01703C4.46474 13 4.01703 12.5523 4.01703 12V9C4.01703 8.44772 4.46474 8 5.01703 8H7.01703C7.56931 8 8.01703 8.44772 8.01703 9V11H10Z" clipRule="evenodd" fillRule="evenodd" />
-                            </svg>
-                            <p className="text-sm font-medium mb-8 leading-relaxed text-brand-deep/80">" {t.text} "</p>
-                            <div className="flex items-center space-x-3">
-                                <div className="w-10 h-10 rounded-full bg-brand-deep/10 overflow-hidden">
-                                    <img src={`https://i.pravatar.cc/100?u=${idx}`} alt="" />
+                        <div key={idx} className="glass-card p-10 rounded-[2.5rem] hover:border-brand-lime/20 transition-all group relative overflow-hidden">
+                            <div className="absolute top-0 right-0 p-8 opacity-5">
+                                <span className="material-symbols-outlined text-[60px] font-black italic">format_quote</span>
+                            </div>
+                            <p className="text-[14px] font-bold mb-10 leading-relaxed text-white/50 italic">" {t.text} "</p>
+                            <div className="flex items-center space-x-4">
+                                <div className="size-12 rounded-2xl bg-white/5 border border-white/10 overflow-hidden shadow-2xl">
+                                    <img src={`https://i.pravatar.cc/100?u=${idx}`} className="grayscale group-hover:grayscale-0 transition-all duration-700" alt={t.name} />
                                 </div>
                                 <div>
-                                    <h4 className="text-sm font-bold">{t.name}</h4>
-                                    <p className="text-[10px] uppercase font-black tracking-widest text-brand-deep/40">{t.role}</p>
+                                    <h4 className="text-sm font-black uppercase tracking-tight font-display italic">{t.name}</h4>
+                                    <p className="text-[9px] uppercase font-black tracking-[0.3em] text-brand-lime/60">{t.role}</p>
                                 </div>
                             </div>
                         </div>

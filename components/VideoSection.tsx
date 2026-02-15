@@ -2,9 +2,9 @@
 
 export default function VideoSection() {
     return (
-        <section className="py-24 px-6 lg:px-12 bg-white">
+        <section className="py-24 px-6 lg:px-12 bg-brand-deep">
             <div className="container mx-auto">
-                <div className="relative h-[600px] w-full rounded-[3rem] overflow-hidden group border border-brand-deep/5">
+                <div className="relative h-[600px] w-full rounded-[3rem] overflow-hidden group border border-white/5">
                     <img src="https://images.unsplash.com/photo-1522770179533-24471fcdba45?q=80&w=1600&auto=format&fit=crop" className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" alt="Stadium Video" />
                     <div className="absolute inset-0 bg-brand-deep/30 flex flex-col items-center justify-center">
                         <div className="absolute top-12 left-12 text-white">
