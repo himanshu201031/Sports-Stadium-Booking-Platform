@@ -3,9 +3,33 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
 
 export default function Checkout() {
     const router = useRouter();
+    const summaryRef = useRef<HTMLDivElement>(null);
+    const paymentRef = useRef<HTMLDivElement>(null);
+    const headerRef = useRef<HTMLDivElement>(null);
+
+    useLayoutEffect(() => {
+        const tl = gsap.timeline({ defaults: { ease: "expo.out", duration: 1.5 } });
+
+        tl.fromTo(headerRef.current?.children || [],
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, stagger: 0.1 }
+        )
+            .fromTo(summaryRef.current,
+                { x: -50, opacity: 0 },
+                { x: 0, opacity: 1 },
+                "-=1"
+            )
+            .fromTo(paymentRef.current,
+                { x: 50, opacity: 0 },
+                { x: 0, opacity: 1 },
+                "-=1.2"
+            );
+    }, []);
 
     const handlePayment = () => {
         router.push("/checkout/success");
@@ -17,7 +41,7 @@ export default function Checkout() {
 
             <main className="max-w-7xl mx-auto px-6 pt-32 pb-20">
                 {/* Header Information */}
-                <div className="mb-16">
+                <div ref={headerRef} className="mb-16">
                     <p className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-lime mb-2">Checkout Logic</p>
                     <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight font-display">Finalize <span className="gradient-text">Reservation</span></h1>
                     <p className="text-white/30 text-lg mt-4 font-medium max-w-2xl leading-relaxed">You are seconds away from securing your elite playing time at Grand Olympic Arena.</p>
@@ -25,7 +49,7 @@ export default function Checkout() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                     {/* Left Column: Summary */}
-                    <div className="lg:col-span-7 space-y-10">
+                    <div ref={summaryRef} className="lg:col-span-7 space-y-10">
                         <section className="glass-morphism rounded-[2.5rem] p-10 overflow-hidden relative">
                             <div className="absolute top-0 right-0 size-48 bg-brand-lime/5 blur-[60px] -z-10 rounded-full"></div>
 
@@ -91,7 +115,7 @@ export default function Checkout() {
                     </div>
 
                     {/* Right Column: Payment */}
-                    <div className="lg:col-span-5 space-y-10">
+                    <div ref={paymentRef} className="lg:col-span-5 space-y-10">
                         <section className="glass rounded-[2.5rem] p-10 relative border border-white/5">
                             <div className="flex items-center justify-between mb-12">
                                 <h3 className="text-xl font-black font-display uppercase tracking-wider text-white">Payment Method</h3>

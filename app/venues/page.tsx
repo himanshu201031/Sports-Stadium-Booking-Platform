@@ -1,3 +1,7 @@
+"use client";
+
+import Link from "next/link";
+import Navbar from "@/components/Navbar";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import Reveal from "@/components/Reveal";
@@ -33,7 +37,60 @@ export default function VenueGallery() {
     }, []);
 
     const venues = [
-        // ... (venues data)
+        {
+            id: 1,
+            name: "Elite Performance Arena",
+            location: "Downtown Sports Complex, NY",
+            price: 85,
+            rating: 4.9,
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBvPYlEhMQj2HWbShttk34BGuQ3Nn0Dt3XYTxBZlkc5vVWFh3aBfWs_9vgfhE-2w7kjE2PETIJHTWo7AqdnH39MOdW0OKtfP4_5d6_FxMeopTzCnfHdOA9mDkewjon_hoYPBUzLu6vMyZ0HEt4ewJxNsAS4CaXvwRAno30Mud0U3oJ8fbx0jT3phTMlG057qaYfGc60Zp8FbUoOLFHpr4W_D9nUm8R3kcw2m2KYvBgza5cOekBrU1Ox2vIycIpSHgQ_qB33DnWUaYTy",
+            status: "Available Now"
+        },
+        {
+            id: 2,
+            name: "Grand Slam Tennis Club",
+            location: "West End Hub, NY",
+            price: 45,
+            rating: 4.7,
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC3eXBba6hhuwVuPmeyR650r5Ah2wtkpvhsnKV27omS9cJTCPVKTBV5yBpd6XqseKsQ4GojlJGiAGYNFh5pra98PHLDekuFHrHegd_t1Sp2vdnLn-sdz-jPqP22SU6W_zzF7bpeRqmxqxS1W9qUwcfqF1bY8g5YQGJp0ulnt2yI13xJJ-3g-lCrM1xdsxAYwFyoBifLwZ-vFvYRtsJV0_FB1PgYJnBbRc-epJLckwGTFXsNwVET4jj1jPjIGHO0_mp57iO_uylA7abR",
+            status: "Next: 4:00 PM"
+        },
+        {
+            id: 3,
+            name: "The Padel Society",
+            location: "Riverside District, NY",
+            price: 60,
+            rating: 4.8,
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDAnr95p_5vqOcNiS_efg5SrfXGvT7rDh0JnCzhZ7J1-GbIY7Q4Lm8oFWA9cpaXXtFsnKFYf_vBehrcQBj6RofTth7V-Re1BZpRdbglBULRmUCS5bjIXMxOeHPm69N_8D70W5Iesu9BotCvVzzjInVeCUGey9ywBIgFyaRFi1fsPgd46H6yTUF2rcGZ86aruSTHoo7BRJup_34OboojzDVFUa-E2UVvn4YcJ56vTMT4-W52W1WJx25RrZYMfKvSN9jLwbBQhUiyzdkO",
+            status: "Available Now"
+        },
+        {
+            id: 4,
+            name: "Skyline Hoops",
+            location: "Upper East Side, NY",
+            price: 110,
+            rating: 5.0,
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBdHz1dKObPwfBTKcevxRg7FtOvbBq1T2OMY-848UtEvOFL3uVV4AoMsRgDtl-Umvw7JKLc38w62qNzjf6Q2ysqIn4DiJQ4DSicqOa2N9KkoLHbO71K5UWlD6cZlIKZXKnu6OqpaJui0uLtch-pc_W41oc0k5bt9PnZz-GwIr0VwCEgxeO2hEMGPCd2osQjgzp4mjx9vKwW_L88yDV7jzG8QUo1DBA9QkAvJ0O7mF1GE9UgYt03EVfvMr8wev7FndLzz_Nm3xqUQZGr",
+            status: "3 slots left"
+        },
+        {
+            id: 5,
+            name: "Stumps & Spin Arena",
+            location: "South Ferry, NY",
+            price: 70,
+            rating: 4.6,
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAcEscS35oIa987XC0x1RPQ0NeJMdhETsG_6g6hlrgCcloBUNuy_RZu3glV14j7nwhH-iRIHid0aPVW-Q2-BCCUE9DbTyGgClKH_LOUZrMD5qhEalU_EAwRyxeY3stTwjwoV_Fa7ADucJnNBe1j8boOeE4FDL0laW8OU655XG2ljuJ_nUrgO8jB6iV8l10wfEFQMC8IkyV2zy5LA8Jok9BiHetnj4Ru2SqmAB0beWxgN5n3PMe478WGK4VIzlydL4EeR1tAJgEaL4HX",
+            status: "Available Now"
+        },
+        {
+            id: 6,
+            name: "Urban Turf Stadium",
+            location: "Chelsea Parks, NY",
+            price: 95,
+            rating: 4.9,
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCZnpblmXmd1MKU7Z7eoKPeYF4rBjd85qCDFFdY-GlH1c9VPiN-o9PETP0Hzg7KM6_8oTGJ2Ssgbxqe5wZIiXHaL6eYMNst62hmreYyj323B9yrxXq2ws6PHOfSoF4cwldMP0_Yi0dTIcYqZKn1cRL3zeggw4JWZQ26aSWbIZgdx9r1etypcfimfxACiGli99C6CfzH_RIXAvwxXmsXC6_T3QiE2Ia8RRoyPOYz3ppdMUczZTurofTYCo5_GVJpTl6AKUrTdApJLclp",
+            status: "Booked Until 9PM"
+        }
     ];
 
     return (

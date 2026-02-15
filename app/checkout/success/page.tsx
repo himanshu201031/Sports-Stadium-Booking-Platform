@@ -2,27 +2,49 @@
 
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
 
 export default function BookingSuccess() {
+    const mainRef = useRef<HTMLDivElement>(null);
+    const cardRef = useRef<HTMLDivElement>(null);
+    const iconRef = useRef<HTMLDivElement>(null);
+
+    useLayoutEffect(() => {
+        const tl = gsap.timeline({ defaults: { ease: "expo.out", duration: 1.5 } });
+
+        tl.fromTo(iconRef.current, { scale: 0, rotation: -45 }, { scale: 1, rotation: 0, duration: 1 })
+            .fromTo(mainRef.current?.children || [],
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, stagger: 0.2 },
+                "-=0.5"
+            )
+            .fromTo(cardRef.current,
+                { y: 50, opacity: 0, rotateX: 20 },
+                { y: 0, opacity: 1, rotateX: 0, duration: 2 },
+                "-=1.5"
+            );
+    }, []);
+
     return (
-        <div className="font-display bg-brand-deep text-white min-h-screen flex flex-col">
+        <div className="font-display bg-brand-deep text-white min-h-screen flex flex-col perspective-1000">
             <Navbar />
 
             <main className="flex-grow flex flex-col items-center justify-center pt-32 pb-20 px-6 relative overflow-hidden">
                 <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-lime/5 rounded-full blur-[150px] pointer-events-none"></div>
                 <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-white/5 rounded-full blur-[150px] pointer-events-none"></div>
 
-                <div className="w-full max-w-4xl mx-auto text-center z-10">
-                    <div className="mb-10 inline-flex items-center justify-center size-32 rounded-[2.5rem] bg-brand-lime text-brand-deep shadow-[0_0_60px_rgba(217,255,50,0.3)]">
+                <div ref={mainRef} className="w-full max-w-4xl mx-auto text-center z-10">
+                    <div ref={iconRef} className="mb-10 inline-flex items-center justify-center size-32 rounded-[2.5rem] bg-brand-lime text-brand-deep shadow-[0_0_60px_rgba(217,255,50,0.3)]">
                         <span className="material-symbols-outlined text-6xl font-black">verified</span>
                     </div>
 
-                    <h1 className="text-5xl sm:text-7xl font-black mb-6 tracking-tight font-display uppercase italic">Access <span className="gradient-text">Granted</span></h1>
+                    <h1 className="text-5xl sm:text-7xl font-black mb-6 tracking-tight font-display uppercase italic text-reveal">Access <span className="gradient-text">Granted</span></h1>
                     <p className="text-xl text-white/30 mb-16 font-medium max-w-2xl mx-auto uppercase tracking-widest">Your elite session at Grand Olympic Arena is officially locked in.</p>
 
-                    <div className="glass-morphism rounded-[3rem] p-10 sm:p-12 mb-16 text-left relative border border-white/5">
+                    <div ref={cardRef} className="glass-morphism rounded-[3rem] p-10 sm:p-12 mb-16 text-left relative border border-white/5 shadow-2xl">
                         <div className="absolute top-0 right-0 p-10 opacity-5">
-                            <span className="material-symbols-outlined text-[120px] font-black italic">bolt</span>
+                            <span className="material-symbols-outlined text-[120px] font-black italic">stadium</span>
                         </div>
 
                         <div className="flex flex-wrap justify-between items-end gap-8 mb-12 pb-10 border-b border-white/5">
